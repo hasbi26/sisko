@@ -20,15 +20,23 @@ class Post extends SEKOLAH_Controller {
 		$where = array(
 			'username' => $this->input->post('username'),
 			'password' => MD5($this->input->post('password'))
+			// 'password' => $this->input->post('password')
 		);
 
 		$resp = $this->M_crud->pub_multi_where('skl_master_user', $where);
 
 		$title = 'Get User';
-		$data = array();
+		$data = ($resp->num_rows() > 0) ? array(
+			'id_user' => $resp->row()->id_user,
+			'username' => $resp->row()->username
+		) : 0;
+		// $data = (count($resp) > 0) ? $resp[0]  : 0 ;
 		$code = ($resp->num_rows() > 0) ? 200 : 404;
-
-		echo skl_response($code, $title, array(), getCodeText($code));
+		// $code = (count($resp)  > 0) ? 200 : 404;
+		// count($query) 
+		echo skl_response($code, $title, $data, getCodeText($code));
 		
 	}
+
+
 }

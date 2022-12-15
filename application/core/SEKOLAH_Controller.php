@@ -12,9 +12,6 @@ class SEKOLAH_Controller extends CI_Controller {
         // $CI->load->model('api_model');
         // $CI->load->library('user_agent');
 
-
-
-
     }
 
     public function config_globals(){
