@@ -2,6 +2,8 @@
 
 function skl_response($code="", $title="", $data=array(), $message=""){
 
+    header('Content-Type: application/json');
+
     $resp = array(
         'code' => $code,
         'title' => $title,

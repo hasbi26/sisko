@@ -13,6 +13,7 @@ class Post extends SEKOLAH_Controller {
 	}
 
 	public function login(){
+		
 		//print_r($this->input->post());
 		$this->load->model('M_crud');
 
