@@ -21,7 +21,7 @@
         //             // print_r($row->username);
         //             $data[] = $row->username;
         //     }
-        print_r($this->db->last_query());
+        //print_r($this->db->last_query());
         // print_r($query);
             //exit;
 
