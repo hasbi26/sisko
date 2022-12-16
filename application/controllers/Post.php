@@ -27,9 +27,9 @@ class Post extends SEKOLAH_Controller {
 
 		$title = 'Get User';
 		$data = ($resp->num_rows() > 0) ? array(
-			'id_user' => $resp->row()->id_user,
+			'id_user' => $resp->row()->id,
 			'username' => $resp->row()->username
-		) : 0;
+		) : array();
 		// $data = (count($resp) > 0) ? $resp[0]  : 0 ;
 		$code = ($resp->num_rows() > 0) ? 200 : 404;
 		// $code = (count($resp)  > 0) ? 200 : 404;
