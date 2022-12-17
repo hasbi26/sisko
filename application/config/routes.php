@@ -60,6 +60,8 @@ $route['login'] = 'post/login';
 $route['getmurid'] = 'get/murid';
 $route['getnilai'] = 'get/nilai';
 $route['absen'] = 'get/absen';
+$route['getNilaiByNik'] = 'get/nilai_by_nik';
+$route['getOpsi'] = 'get/opsi';
 
 // $route['default_controller'] = 'authController/login';
 $route['404_override'] = '';
