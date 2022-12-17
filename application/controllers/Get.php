@@ -48,17 +48,25 @@ class GET extends SEKOLAH_Controller {
 		
 	}
 
-	public function nilai(){
+	public function nilai_by_nik(){
 		
-		$nik = $this->input->get('id_murid');
-		$id_jenis_nilai = $this->input->get('id_jenis_nilai');
+		$nik = $this->input->get('nik');
+		$offset = $this->input->get('offset'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
 		
-		$sql = "select c.nik, c.nama, b.nama_pelajaran, a.nilai, d.jenis_nilai from skl_trx_nilai a ".
+		$query = "select c.nik, c.nama, b.nama_pelajaran, a.nilai, d.jenis_nilai from skl_trx_nilai a ".
 				"join skl_master_pelajaran b on a.id_pelajaran = b.id_pelajaran join skl_master_murid c on c.nik = a.id_murid ".
-				"join skl_master_jenis_nilai d on d.id_jenis_nilai = a.id_jenis_nilai where nik = ? and d.id_jenis_nilai = ?";
-		$this->db->query($sql, array($nik, $id_jenis_nilai));
-
-		$resp = $this->db->query($sql, array($nik, $id_jenis_nilai));
+				"join skl_master_jenis_nilai d on d.id_jenis_nilai = a.id_jenis_nilai where nik = '{$nik}' ";
+		
+		if($orderby !== "" && $ordertype !== ""){
+			$query .= "ORDER BY {$orderby} {$ordertype} ";
+		}
+		
+		$query .= "LIMIT {$limit} OFFSET {$offset}";
+		//echo $query;exit;
+		$resp = $this->M_crud->customQuery($query);
 
 		$data = array();
 		if($resp->num_rows() > 0){
@@ -83,6 +91,27 @@ class GET extends SEKOLAH_Controller {
 
 		echo skl_response($code, $title, $data, getCodeText($code));
 		
+	}
+
+	public function opsi(){
+
+		$resp = $this->M_crud->all('skl_master_opsi');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All Opsi';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+
 	}
 
 

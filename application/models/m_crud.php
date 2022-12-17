@@ -7,23 +7,17 @@
         private $where;
 
         private function multi_where(){
-            // print_r($this->where);
-            // print_r($this->table_name);
-            // exit;
             $this->db->where($this->where);
             $query = $this->db->get($this->table_name);
-
-            // $query = $this->db->get('mytable');
-           // var_dump("test", $query);
-        //    $data = array(); 
-        //    foreach ($query->result() as $row)
-        //     {
-        //             // print_r($row->username);
-        //             $data[] = $row->username;
-        //     }
-        //print_r($this->db->last_query());
-        // print_r($query);
+            //print_r($this->db->last_query());
             //exit;
+
+            return $query;
+        }
+
+        private function get_all(){ //used just 1 tabel only
+
+            $query = $this->db->get($this->table_name);
 
             return $query;
         }
@@ -33,6 +27,21 @@
             $this->table_name = $table;
             $this->where = $arr;
             return $this->multi_where();
+        }
+
+        public function all($table){
+
+            $this->table_name = $table;
+            return $this->get_all();
+
+        }
+
+        public function customQuery($query){
+
+		    $resp = $this->db->query($query);
+
+            return $resp;
+
         }
     }
 
