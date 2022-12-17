@@ -48,5 +48,42 @@ class GET extends SEKOLAH_Controller {
 		
 	}
 
+	public function nilai(){
+		
+		$nik = $this->input->get('id_murid');
+		$id_jenis_nilai = $this->input->get('id_jenis_nilai');
+		
+		$sql = "select c.nik, c.nama, b.nama_pelajaran, a.nilai, d.jenis_nilai from skl_trx_nilai a ".
+				"join skl_master_pelajaran b on a.id_pelajaran = b.id_pelajaran join skl_master_murid c on c.nik = a.id_murid ".
+				"join skl_master_jenis_nilai d on d.id_jenis_nilai = a.id_jenis_nilai where nik = ? and d.id_jenis_nilai = ?";
+		$this->db->query($sql, array($nik, $id_jenis_nilai));
+
+		$resp = $this->db->query($sql, array($nik, $id_jenis_nilai));
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[] = array(
+					'nik' => $value->nik,
+					'nama' => $value->nama,
+					'nama_pelajaran' => $value->nama_pelajaran,
+					'nilai' => $value->nilai,
+					'jenis_nilai' => $value->jenis_nilai,
+				);
+
+			}
+
+		}
+
+		$title = 'Get nilai By Nik';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
+	}
+
 
 }
