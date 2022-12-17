@@ -59,6 +59,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'post/login';
 $route['getmurid'] = 'get/murid';
 $route['getnilai'] = 'get/nilai';
+$route['absen'] = 'get/absen';
 
 // $route['default_controller'] = 'authController/login';
 $route['404_override'] = '';

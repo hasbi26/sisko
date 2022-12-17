@@ -85,5 +85,41 @@ class GET extends SEKOLAH_Controller {
 		
 	}
 
+	public function absen(){
+		
+		$nik = $this->input->get('id_murid');
+		$id_jenis_nilai = $this->input->get('id_jenis_nilai');
+		
+		$sql = "select nama, checktime, status, keterangan from skl_trx_absen a join skl_master_murid b on a.id_murid = b.nik 
+		where nik = '123' ";
+		$this->db->query($sql, array($nik, $id_jenis_nilai));
+
+		$resp = $this->db->query($sql, array($nik, $id_jenis_nilai));
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[] = array(
+					'nik' => $value->nik,
+					'nama' => $value->nama,
+					'nama_pelajaran' => $value->nama_pelajaran,
+					'nilai' => $value->nilai,
+					'jenis_nilai' => $value->jenis_nilai,
+				);
+
+			}
+
+		}
+
+		$title = 'Get nilai By Nik';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
+	}
+
 
 }
