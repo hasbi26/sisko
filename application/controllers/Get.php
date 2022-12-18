@@ -91,9 +91,32 @@ class GET extends SEKOLAH_Controller {
 		$title = 'Get nilai By Nik';
 		$code = ($resp->num_rows() > 0) ? 200 : 404;
 
-		echo skl_response($code, $title, $data, getCodeText($code));
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
 		
 	}
+
+	public function opsi(){
+
+		$resp = $this->M_crud->all('skl_master_opsi');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All Opsi';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+
+	}
+
+
 
 	public function absen(){
 		
@@ -125,31 +148,10 @@ class GET extends SEKOLAH_Controller {
 		}
 	}
 
-		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
 		
-	}
-
-	public function opsi(){
-
-		$resp = $this->M_crud->all('skl_master_opsi');
-
-		$data = array();
-
-		if($resp->num_rows() > 0){
-
-			foreach ($resp->result() as $key => $value) {
-				$data[$key] = $value;
-			}
+	
 
 
-		}
-
-		$title = 'Get All Opsi';
-		$code = ($resp->num_rows() > 0) ? 200 : 404;
-
-		echo skl_response($code, $title, $data, getCodeText($code));
-
-	}
 
 
 }
