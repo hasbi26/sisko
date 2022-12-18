@@ -65,7 +65,6 @@ class GET extends SEKOLAH_Controller {
 		}
 		
 		$query .= "LIMIT {$limit} OFFSET {$offset}";
-		//echo $query;exit;
 		$resp = $this->M_crud->customQuery($query);
 
 		$data = array();
@@ -118,6 +117,11 @@ class GET extends SEKOLAH_Controller {
 					'jenis_nilai' => $value->jenis_nilai,
 				);
 
+			}
+
+		}
+	}
+
 	public function opsi(){
 
 		$resp = $this->M_crud->all('skl_master_opsi');
@@ -129,13 +133,13 @@ class GET extends SEKOLAH_Controller {
 			foreach ($resp->result() as $key => $value) {
 				$data[$key] = $value;
 			}
-
+			// $data[] = array(
+			// 	'id' => "test",
+			// 	'nama_opsi' => "test",
+			// 	'keterangan' => "test",
+			// 	'api' => "test",
+			// );
 		}
-
-		$title = 'Get nilai By Nik';
-		$code = ($resp->num_rows() > 0) ? 200 : 404;
-
-		echo skl_response($code, $title, $data, getCodeText($code));
 		
 		$title = 'Get All Opsi';
 		$code = ($resp->num_rows() > 0) ? 200 : 404;
