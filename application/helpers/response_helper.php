@@ -1,6 +1,6 @@
 <?php
 
-function skl_response($code="", $title="", $data=array(), $message=""){
+function skl_response($code="", $title="", $data=array(), $message="", $total_record=""){
 
     header('Content-Type: application/json');
 
@@ -10,6 +10,18 @@ function skl_response($code="", $title="", $data=array(), $message=""){
         'data' => $data,
         'message' => $message
     );
+
+    if($total_record !== ""){
+
+        $resp = array(
+            'code' => $code,
+            'title' => $title,
+            'data' => $data,
+            'message' => $message,
+            'total_record' => $total_record
+        );
+        
+    }
 
     return json_encode($resp, JSON_PRETTY_PRINT);
 }
