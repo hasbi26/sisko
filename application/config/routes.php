@@ -70,6 +70,11 @@ $route['get/guru/all'] = "get/guruAll";
 $route['patch/guru/byNip/(:any)'] = "patch/guruByNip/$1";
 $route['delete/guru/byNip/(:any)'] = "delete/guruByNip/$1";
 
+
+$route['addpelajaran'] = "post/addpelajaran";
+$route['patch/pelajaran/byId/(:any)'] = "patch/pelajaranById/$1";
+$route['delete/pelajaran/byId/(:any)'] = "delete/pelajaranById/$1";
+
 $route['logs'] = "logViewerController/index";
 
 
