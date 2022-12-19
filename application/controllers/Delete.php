@@ -15,16 +15,9 @@ class DELETE extends SEKOLAH_Controller {
 
 
     public function guruByNip($nip){
-		
-		$body = json_validator(file_get_contents('php://input'));
-
-		// if(!$body){
-		// 	$title = 'delete Guru By NIP';
-		// 	$code = 400;
-		// 	$data = array();
-		// }
 
 		$resp = $this->M_crud->pub_delete_where('skl_master_guru', array('nip' => $nip));
+		
         $title = 'Delete Guru By NIP';
         $code = 200;
         $data = array();

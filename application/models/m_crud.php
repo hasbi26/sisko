@@ -12,6 +12,7 @@
         private $orderType;
 
         private $body;
+        private $value;
 
         private function multi_where(){
             $this->db->where($this->where);
@@ -52,10 +53,14 @@
         private function delete_where(){
             $this->db->where($this->where);
             $update = $this->db->delete($this->table_name);
-            print_r($this->db->last_query());
+            //print_r($this->db->last_query());
             return ($this->db->affected_rows() > 0) ? TRUE : FALSE;
 
             // return $update;
+        }
+
+        private function insert(){
+            return $this->db->insert($this->table_name, $this->value);
         }
 
         public function pub_multi_where($table, $arr){
@@ -90,6 +95,13 @@
             $this->where = $arr;
 
             return $this->delete_where();
+        }
+
+        public function pub_insert($table, $value){
+            $this->table_name = $table;
+            $this->value = $value;
+
+            return $this->insert();
         }
 
         public function customQuery($query){

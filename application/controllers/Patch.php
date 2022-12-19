@@ -24,15 +24,15 @@ class PATCH extends SEKOLAH_Controller {
 
 		$resp = $this->M_crud->pub_update_where('skl_master_guru', $body, array('nip' => $nip));
 		//var_dump($resp);exit;
+		$title = 'Update Guru By NIP';
+		$code = 200;
+		$data = array();
+
 		if(!$resp){
 			$title = 'Update Guru By NIP';
 			$code = 204;
 			$data = array();
 		}
-
-		$title = 'Update Guru By NIP';
-		$code = 200;
-		$data = array();
 
 		echo skl_response($code, $title, $data, getCodeText($code));
 	}
@@ -40,9 +40,7 @@ class PATCH extends SEKOLAH_Controller {
 
     
 	public function editGuru(){
-
-        
-
+		
 		$data = array(
 			'nip' => $this->input->get('nip'),
 			'nama_guru' => $this->input->get('nama_guru'),
