@@ -64,6 +64,10 @@ $route['getNilaiByNik'] = 'get/nilai_by_nik';
 $route['getOpsi'] = 'get/opsi';
 $route['addguru'] = "post/addGuru";
 $route['editguru'] = "patch/editGuru";
+$route['get/guru/byNip'] = "get/guruByNip";
+$route['get/guru/all'] = "get/guruAll";
+
+$route['patch/guru/byNip/(:any)'] = "patch/guruByNip/$1";
 
 $route['logs'] = "logViewerController/index";
 

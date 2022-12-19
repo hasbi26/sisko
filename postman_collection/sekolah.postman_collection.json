@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "7db32ba0-bfaa-4223-b02b-4bf95a582fdd",
+		"name": "sekolah",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "test",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sekolah_be/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sekolah_be",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get nilai by nik",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sekolah_be/getNilaiByNik?nik=123&limit=10&offset=0&order_by=&order_type=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sekolah_be",
+						"getNilaiByNik"
+					],
+					"query": [
+						{
+							"key": "nik",
+							"value": "123"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "order_by",
+							"value": ""
+						},
+						{
+							"key": "order_type",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get opsi",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sekolah_be/getOpsi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sekolah_be",
+						"getOpsi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get guru all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sekolah_be/get/guru/all?start=0&limit=10&order_by&order_type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sekolah_be",
+						"get",
+						"guru",
+						"all"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "order_by",
+							"value": null
+						},
+						{
+							"key": "order_type",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get guru by nip",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sekolah_be/get/guru/byNip?nip=1ab",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sekolah_be",
+						"get",
+						"guru",
+						"byNip"
+					],
+					"query": [
+						{
+							"key": "nip",
+							"value": "1ab"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update guru by nip",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama_guru\" : \"1ab\",\r\n    \"alamat\" : \"test patch2\",\r\n    \"no_telepon\" : \"test patch\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/sekolah_be/patch/guru/byNip/1ab",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sekolah_be",
+						"patch",
+						"guru",
+						"byNip",
+						"1ab"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

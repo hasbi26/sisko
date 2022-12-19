@@ -48,10 +48,10 @@ class GET extends SEKOLAH_Controller {
 		
 	}
 
-	public function nilai_by_nik(){
+	public function nilai_by_nik(){ //untuk datatable
 		
 		$nik = $this->input->get('nik');
-		$offset = $this->input->get('offset'); // tampilkan mulai dari record ke ..
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
 		$limit = $this->input->get('limit'); //tampilkan sebanyak
 		$orderby = $this->input->get('order_by'); //nama field
 		$ordertype = $this->input->get('order_type'); // ASC / DESC
@@ -66,7 +66,7 @@ class GET extends SEKOLAH_Controller {
 
 		$resp_all = $this->M_crud->customQuery($query);
 		
-		$query .= "LIMIT {$limit} OFFSET {$offset}";
+		$query .= "LIMIT {$limit} OFFSET {$start}";
 		//echo $query;exit;
 		$resp = $this->M_crud->customQuery($query);
 
@@ -116,8 +116,6 @@ class GET extends SEKOLAH_Controller {
 
 	}
 
-
-
 	public function absen(){
 		
 		$nik = $this->input->get('id_murid');
@@ -146,6 +144,58 @@ class GET extends SEKOLAH_Controller {
 			}
 
 		}
+	}
+
+	public function guruAll(){ //untuk datatable
+
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+
+		$resp = $this->M_crud->all('skl_master_guru', $start, $limit, $orderby, $ordertype);
+		//exit;
+		$resp_all = $this->M_crud->all('skl_master_guru');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All Guru';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+
+	}
+
+	public function guruByNip(){
+		//print_r($this->input->get());
+		//$nip = $this->input->get('nip');
+		$resp = $this->M_crud->pub_multi_where('skl_master_guru', $this->input->get());
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get Guru By NIP';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
 	}
 
 		
