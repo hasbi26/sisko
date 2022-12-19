@@ -62,6 +62,13 @@ $route['getnilai'] = 'get/nilai';
 $route['absen'] = 'get/absen';
 $route['getNilaiByNik'] = 'get/nilai_by_nik';
 $route['getOpsi'] = 'get/opsi';
+$route['addguru'] = "post/addGuru";
+$route['editguru'] = "patch/editGuru";
+
+$route['logs'] = "logViewerController/index";
+
+
+
 
 // $route['default_controller'] = 'authController/login';
 $route['404_override'] = '';

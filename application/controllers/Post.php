@@ -40,6 +40,21 @@ class Post extends SEKOLAH_Controller {
 
 
 
+	public function addGuru(){
+		$data = array(
+			'nip' => $this->input->post('nip'),
+			'nama_guru' => $this->input->post('nama_guru'),
+			'alamat' => $this->input->post('alamat'),
+			'no_telepon' => $this->input->post('no_telp'),
+		);
+		($this->db->insert('skl_master_guru',$data)) ? $status = 'succces' : $status = $this->db->error();
+		$title = 'Add Guru';
+		echo skl_response($status, $title);
+	}
+
+
+
+
 	public function addabsen(){
 		
 		//print_r($this->input->post());
