@@ -49,6 +49,15 @@
             return $update;
         }
 
+        private function delete_where(){
+            $this->db->where($this->where);
+            $update = $this->db->delete($this->table_name);
+            print_r($this->db->last_query());
+            return ($this->db->affected_rows() > 0) ? TRUE : FALSE;
+
+            // return $update;
+        }
+
         public function pub_multi_where($table, $arr){
                 // print_r($this->$arr[0]);
             $this->table_name = $table;
@@ -74,6 +83,13 @@
             $this->where = $arr;
 
             return $this->update_where();
+        }
+
+        public function pub_delete_where($table, $arr){
+            $this->table_name = $table;
+            $this->where = $arr;
+
+            return $this->delete_where();
         }
 
         public function customQuery($query){
