@@ -55,22 +55,39 @@ class GET extends SEKOLAH_Controller {
 		$limit = $this->input->get('limit'); //tampilkan sebanyak
 		$orderby = $this->input->get('order_by'); //nama field
 		$ordertype = $this->input->get('order_type'); // ASC / DESC
-		
-		$query = "select c.nik, c.nama, b.nama_pelajaran, a.nilai, d.jenis_nilai from skl_trx_nilai a ".
-				"join skl_master_pelajaran b on a.id_pelajaran = b.id_pelajaran join skl_master_murid c on c.nik = a.id_murid ".
-				"join skl_master_jenis_nilai d on d.id_jenis_nilai = a.id_jenis_nilai where nik = '{$nik}' ";
-		
-		if($orderby !== "" && $ordertype !== ""){
-			$query .= "ORDER BY {$orderby} {$ordertype} ";
-		}
 
-		$resp_all = $this->M_crud->customQuery($query);
+		$select = "c.nik, c.nama, b.nama_pelajaran, a.nilai, d.jenis_nilai";
+
+		$join = array(
+			"skl_master_pelajaran b" => "on a.id_pelajaran = b.id_pelajaran",
+			"skl_master_murid c" => "on c.nik = a.id_murid",
+			"skl_master_jenis_nilai d" => "on d.id_jenis_nilai = a.id_jenis_nilai"
+		);
+
+		$where = array(
+			"nik" => $nik
+		);
 		
-		$query .= "LIMIT {$limit} OFFSET {$start}";
+		// $query = "select c.nik, c.nama, b.nama_pelajaran, a.nilai, d.jenis_nilai from skl_trx_nilai a ".
+		// 		"join skl_master_pelajaran b on a.id_pelajaran = b.id_pelajaran join skl_master_murid c on c.nik = a.id_murid ".
+		// 		"join skl_master_jenis_nilai d on d.id_jenis_nilai = a.id_jenis_nilai where nik = '{$nik}' ";
+		
+		// if($orderby !== "" && $ordertype !== ""){
+		// 	$query .= "ORDER BY {$orderby} {$ordertype} ";
+		// }
+
+		// //$resp_all = $this->M_crud->customQuery2($query);
+		
+		// $query .= "LIMIT {$limit} OFFSET {$start}";
 		//echo $query;exit;
-		$resp = $this->M_crud->customQuery($query);
+		$resp = $this->M_crud->customQuery($select, $join, $where, $orderby, $ordertype, $limit, $start);
+		// exit;
+		$resp_all = $this->M_crud->customQuery($select, $join, $where, $orderby, $ordertype);
+		// var_dump($resp);
+		// exit;
 
 		$data = array();
+
 		if($resp->num_rows() > 0){
 
 			foreach ($resp->result() as $key => $value) {

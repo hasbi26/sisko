@@ -104,9 +104,30 @@
             return $this->insert();
         }
 
-        public function customQuery($query){
+        public function customQuery($select, $join, $where, $orderby, $ordertype, $limit="", $start=""){
 
-		    $resp = $this->db->query($query);
+            $this->db->select('c.nik, c.nama, b.nama_pelajaran, a.nilai, d.jenis_nilai');
+            $this->db->from('skl_trx_nilai a');
+
+            foreach ($join as $key => $value) {
+                # code...
+                $this->db->join($key, $value);
+            }
+
+            $this->db->where($where);
+
+            if($orderby !== "" && $ordertype !== ""){
+                $this->db->order_by($orderby, $ordertype);
+            }
+
+            if($limit !== "" && $start !== ""){
+                $this->db->limit($limit, $start);
+            }
+
+            $resp = $this->db->get();
+
+            // print_r($this->db->last_query());
+            // exit;
 
             return $resp;
 
