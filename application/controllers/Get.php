@@ -192,8 +192,6 @@ class GET extends SEKOLAH_Controller {
 	}
 
 	public function guruByNip(){
-		//print_r($this->input->get());
-		//$nip = $this->input->get('nip');
 		$resp = $this->M_crud->pub_multi_where('skl_master_guru', $this->input->get());
 
 		$data = array();
@@ -215,10 +213,264 @@ class GET extends SEKOLAH_Controller {
 		
 	}
 
+	public function pelajaranById(){
+		$resp = $this->M_crud->pub_multi_where('skl_master_pelajaran', $this->input->get());
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get Pelejaran By Id';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
 		
+	}
+
+	public function pelajaranAll(){ //untuk datatable
+
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+
+		$resp = $this->M_crud->all('skl_master_pelajaran', $start, $limit, $orderby, $ordertype);
+		//exit;
+		$resp_all = $this->M_crud->all('skl_master_pelajaran');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All pelajaran';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+
+	}
+
+	public function muridByNik(){
+		$resp = $this->M_crud->pub_multi_where('skl_master_murid', $this->input->get());
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get Murid By Id';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
+	}
+
+	public function muridAll(){ //untuk datatable
+
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+
+		$resp = $this->M_crud->all('skl_master_murid', $start, $limit, $orderby, $ordertype);
+		//exit;
+		$resp_all = $this->M_crud->all('skl_master_murid');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All murid';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+
+	}
+
+
+	public function jenisnilaiById(){
+		$resp = $this->M_crud->pub_multi_where('skl_master_jenis_nilai', $this->input->get());
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get jenis nilai By Id';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
+	}
+
 	
 
+	public function jenisnilaiAll(){ //untuk datatable
 
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+
+		$resp = $this->M_crud->all('skl_master_jenis_nilai', $start, $limit, $orderby, $ordertype);
+		//exit;
+		$resp_all = $this->M_crud->all('skl_master_jenis_nilai');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All murid';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+
+	}
+
+
+	public function userAll(){ //untuk datatable
+
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+
+		$resp = $this->M_crud->all('skl_master_user', $start, $limit, $orderby, $ordertype);
+		//exit;
+		$resp_all = $this->M_crud->all('skl_master_user');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All User';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+
+	}
+	
+
+	public function userById(){
+		$resp = $this->M_crud->pub_multi_where('skl_master_user', $this->input->get());
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get user By Id';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
+	}
+
+	public function opsiById(){
+		$resp = $this->M_crud->pub_multi_where('skl_master_opsi', $this->input->get());
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get opsi By Id';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
+	}
+
+
+	public function opsiAll(){ //untuk datatable
+
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+
+		$resp = $this->M_crud->all('skl_master_opsi', $start, $limit, $orderby, $ordertype);
+		//exit;
+		$resp_all = $this->M_crud->all('skl_master_opsi');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All Opsi';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+
+	}
+	
+	
+	
 
 
 }

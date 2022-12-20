@@ -49,11 +49,53 @@ class Post extends SEKOLAH_Controller {
 	}
 
 
+	public function addMurid(){
+
+		$resp = $this->M_crud->pub_insert('skl_master_murid', $this->input->post());
+		$title = 'Insert Murid';
+		$code = ($resp) ? 201 : 409;
+		$data = array();
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
+
 
 	public function addPelajaran(){
 
 		$resp = $this->M_crud->pub_insert('skl_master_pelajaran', $this->input->post());
 		$title = 'Insert Pelajaran';
+		$code = ($resp) ? 201 : 409;
+		$data = array();
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
+	public function addJenisNilai(){
+
+		$resp = $this->M_crud->pub_insert('skl_master_jenis_nilai', $this->input->post());
+		$title = 'Insert Jenis Nilai';
+		$code = ($resp) ? 201 : 409;
+		$data = array();
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
+
+	public function adduser(){
+
+		$resp = $this->M_crud->pub_insert('skl_master_user', $this->input->post());
+		$title = 'Insert user';
+		$code = ($resp) ? 201 : 409;
+		$data = array();
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
+	public function addopsi(){
+
+		$resp = $this->M_crud->pub_insert('skl_master_opsi', $this->input->post());
+		$title = 'Insert Opsi';
 		$code = ($resp) ? 201 : 409;
 		$data = array();
 

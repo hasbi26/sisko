@@ -64,7 +64,6 @@ $route['getNilaiByNik'] = 'get/nilai_by_nik';
 $route['getOpsi'] = 'get/opsi';
 
 $route['addguru'] = "post/addGuru";
-$route['editguru'] = "patch/editGuru";
 $route['get/guru/byNip'] = "get/guruByNip";
 $route['get/guru/all'] = "get/guruAll";
 $route['patch/guru/byNip/(:any)'] = "patch/guruByNip/$1";
@@ -74,6 +73,39 @@ $route['delete/guru/byNip/(:any)'] = "delete/guruByNip/$1";
 $route['addpelajaran'] = "post/addpelajaran";
 $route['patch/pelajaran/byId/(:any)'] = "patch/pelajaranById/$1";
 $route['delete/pelajaran/byId/(:any)'] = "delete/pelajaranById/$1";
+$route['get/pelajaran/byId'] = "get/pelajaranById";
+$route['get/pelajaran/all'] = "get/pelajaranAll";
+
+
+$route['addmurid'] = "post/addmurid";
+$route['patch/murid/byNik/(:any)'] = "patch/muridByNik/$1";
+$route['delete/murid/byNik/(:any)'] = "delete/muridByNik/$1";
+$route['get/murid/byNik'] = "get/muridByNik";
+$route['get/murid/all'] = "get/muridAll";
+
+
+$route['addjenisnilai'] = "post/addjenisnilai";
+$route['patch/jenisnilai/byId/(:any)'] = "patch/jenisnilaiById/$1";
+$route['delete/jenisnilai/byId/(:any)'] = "delete/jenisnilaiById/$1";
+$route['get/jenisnilai/byId'] = "get/jenisnilaiById";
+$route['get/jenisnilai/all'] = "get/jenisnilaiAll";
+
+
+$route['adduser'] = "post/adduser";
+$route['patch/user/byId/(:any)'] = "patch/userById/$1";
+$route['delete/user/byId/(:any)'] = "delete/userById/$1";
+$route['get/user/byId'] = "get/userById";
+$route['get/user/all'] = "get/userAll";
+
+
+$route['addopsi'] = "post/addopsi";
+$route['patch/opsi/byId/(:any)'] = "patch/opsiById/$1";
+$route['delete/opsi/byId/(:any)'] = "delete/opsiById/$1";
+$route['get/opsi/byId'] = "get/opsiById";
+$route['get/opsi/all'] = "get/opsiAll";
+
+
+
 
 $route['logs'] = "logViewerController/index";
 
