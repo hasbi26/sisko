@@ -37,6 +37,31 @@ class PATCH extends SEKOLAH_Controller {
 		echo skl_response($code, $title, $data, getCodeText($code));
 	}
 
+	public function pelajaranById($Id){
+		
+		$body = json_validator(file_get_contents('php://input'));
+
+		if(!$body){
+			$title = 'Update Pelajaran By ID';
+			$code = 400;
+			$data = array();
+		}
+
+		$resp = $this->M_crud->pub_update_where('skl_master_pelajaran', $body, array('id_pelajaran' => $Id));
+		//var_dump($resp);exit;
+		$title = 'Update Pelajaran By ID';
+		$code = 200;
+		$data = array();
+
+		if(!$resp){
+			$title = 'Update Pelajaran By ID';
+			$code = 204;
+			$data = array();
+		}
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
 
     
 	public function editGuru(){
