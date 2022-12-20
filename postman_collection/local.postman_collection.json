@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "d10b935f-02b8-4519-8da4-6c94a775bf19",
+		"name": "local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "1",
+						"type": "default",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "1",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "test",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sisko/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getmurid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/getmurid?id_user=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"getmurid"
+					],
+					"query": [
+						{
+							"key": "id_user",
+							"value": "2"
+						}
+					]
+				},
+				"description": "getmurid"
+			},
+			"response": []
+		},
+		{
+			"name": "saveguru",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nama_opsi",
+							"value": "test",
+							"type": "default"
+						},
+						{
+							"key": "keterangan",
+							"value": "test keterangan",
+							"type": "default"
+						},
+						{
+							"key": "api",
+							"value": "test api",
+							"type": "default"
+						},
+						{
+							"key": "no_telepon",
+							"value": "089898",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sisko/addopsi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"addopsi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveopsi",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nip",
+							"value": "989898989",
+							"type": "default"
+						},
+						{
+							"key": "nama_guru",
+							"value": "joko",
+							"type": "default"
+						},
+						{
+							"key": "alamat",
+							"value": "argen",
+							"type": "default"
+						},
+						{
+							"key": "no_telepon",
+							"value": "089898",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sisko/addguru",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"addguru"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "savepelajaran",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "tatang",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "tatang",
+							"type": "default"
+						},
+						{
+							"key": "nip",
+							"value": "8",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sisko/adduser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"adduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveuser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_jenis_nilai",
+							"value": "6",
+							"type": "default"
+						},
+						{
+							"key": "jenis_nilai",
+							"value": "UTS - SMT 1",
+							"type": "default"
+						},
+						{
+							"key": "nip",
+							"value": "8",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sisko/addjenisnilai",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"addjenisnilai"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "savejenisnilai",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nip",
+							"value": "989898989",
+							"type": "default"
+						},
+						{
+							"key": "nama_guru",
+							"value": "joko",
+							"type": "default"
+						},
+						{
+							"key": "alamat",
+							"value": "argen",
+							"type": "default"
+						},
+						{
+							"key": "no_telepon",
+							"value": "089898",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sisko/addguru",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"addguru"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveMurid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nik",
+							"value": "9",
+							"type": "default"
+						},
+						{
+							"key": "id_user",
+							"value": "2",
+							"type": "default"
+						},
+						{
+							"key": "id_sekolah",
+							"value": "2",
+							"type": "default"
+						},
+						{
+							"key": "id_kelas",
+							"value": "6",
+							"type": "default"
+						},
+						{
+							"key": "nama",
+							"value": "messi",
+							"type": "default"
+						},
+						{
+							"key": "alamat",
+							"value": "kabupaten cicalengka",
+							"type": "default"
+						},
+						{
+							"key": "telepon",
+							"value": "10101",
+							"type": "default"
+						},
+						{
+							"key": "image",
+							"value": "siswa.jpg",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sisko/addmurid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"addmurid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patchguru",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/sisko/patch/guru/byNip/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"patch",
+						"guru",
+						"byNip",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/sisko/delete/guru/byNip/xyz",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/delete/guru/byNip/2020",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"delete",
+						"guru",
+						"byNip",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del jenisnilai by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/delete/jenisnilai/byId/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"delete",
+						"jenisnilai",
+						"byId",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del pelajaran",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/delete/user/byId/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"delete",
+						"user",
+						"byId",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/delete/murid/byNik/989898989",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"delete",
+						"murid",
+						"byNik",
+						"989898989"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del murid",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/delete/guru/byNip/xyz",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"delete",
+						"guru",
+						"byNip",
+						"xyz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del opsi",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/delete/opsi/byId/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"delete",
+						"opsi",
+						"byId",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

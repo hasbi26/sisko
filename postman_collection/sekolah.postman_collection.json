@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7db32ba0-bfaa-4223-b02b-4bf95a582fdd",
+		"_postman_id": "05e2ace9-00a9-46d2-8b32-934c3b3e0862",
 		"name": "sekolah",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -139,18 +139,213 @@
 			"response": []
 		},
 		{
-			"name": "get guru by nip",
+			"name": "get pelajaran all",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/sekolah_be/get/guru/byNip?nip=1ab",
+					"raw": "http://localhost/sisko/get/jenisnilai/all?start=1&limit=10&order_by&order_type",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
-						"sekolah_be",
+						"sisko",
+						"get",
+						"jenisnilai",
+						"all"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "order_by",
+							"value": null
+						},
+						{
+							"key": "order_type",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/user/all?start=0&limit=2&order_by&order_type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"user",
+						"all"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "order_by",
+							"value": null
+						},
+						{
+							"key": "order_type",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get jenis nilai all Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/pelajaran/all?start=1&limit=1&order_by&order_type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"pelajaran",
+						"all"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "order_by",
+							"value": null
+						},
+						{
+							"key": "order_type",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get murid all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/opsi/all?start=0&limit=3&order_by&order_type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"opsi",
+						"all"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "order_by",
+							"value": null
+						},
+						{
+							"key": "order_type",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get opsi all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/murid/all?start=1&limit=3&order_by&order_type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"murid",
+						"all"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "order_by",
+							"value": null
+						},
+						{
+							"key": "order_type",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get guru by nip",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/guru/byNip?nip=1ab",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
 						"get",
 						"guru",
 						"byNip"
@@ -159,6 +354,146 @@
 						{
 							"key": "nip",
 							"value": "1ab"
+						},
+						{
+							"key": "nama_guru",
+							"value": "rohan",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get opsi by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/opsi/byId?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"opsi",
+						"byId"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get pelajaran by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/user/byId?id=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"user",
+						"byId"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/pelajaran/byId?id_pelajaran=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"pelajaran",
+						"byId"
+					],
+					"query": [
+						{
+							"key": "id_pelajaran",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get jenisnilai by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/pelajaran/byId?id_pelajaran=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"pelajaran",
+						"byId"
+					],
+					"query": [
+						{
+							"key": "id_pelajaran",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get murid by nik",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/murid/byNik?nik=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"murid",
+						"byNik"
+					],
+					"query": [
+						{
+							"key": "nik",
+							"value": "123"
 						}
 					]
 				}
@@ -172,7 +507,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nama_guru\" : \"1ab\",\r\n    \"alamat\" : \"test patch2\",\r\n    \"no_telepon\" : \"test patch\"\r\n}",
+					"raw": "{\r\n    \"id_user\" : \"3\",\r\n    \"id_sekolah\" : \"3\",\r\n    \"id_kelas\" : \"2\",\r\n    \"nama\" : \"anak\",\r\n    \"alamat\" : \"jln hehe\",\r\n    \"telepon\" : \"aduh\",\r\n    \"image\" : \"update.jpg\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -180,17 +515,244 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost/sekolah_be/patch/guru/byNip/1ab",
+					"raw": "http://localhost/sisko/patch/murid/byNik/1010",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
-						"sekolah_be",
+						"sisko",
+						"patch",
+						"murid",
+						"byNik",
+						"1010"
+					],
+					"query": [
+						{
+							"key": "nip",
+							"value": "1ab",
+							"disabled": true
+						},
+						{
+							"key": "nama_guru",
+							"value": "jhon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update murid by nik",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama_opsi\" : \"update\",\r\n    \"keterangan\" : \"update\",\r\n    \"api\" : \"update\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/sisko/patch/opsi/byId/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"patch",
+						"opsi",
+						"byId",
+						"3"
+					],
+					"query": [
+						{
+							"key": "nip",
+							"value": "1ab",
+							"disabled": true
+						},
+						{
+							"key": "nama_guru",
+							"value": "jhon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update opsi by id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama_guru\" : \"bodo\",\r\n    \"alamat\" : \"alamat\",\r\n    \"no_telepon\" : \"08999\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/sisko/patch/guru/byNip/989898989",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
 						"patch",
 						"guru",
 						"byNip",
-						"1ab"
+						"989898989"
+					],
+					"query": [
+						{
+							"key": "nip",
+							"value": "1ab",
+							"disabled": true
+						},
+						{
+							"key": "nama_guru",
+							"value": "jhon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update pelajaran by id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"jenis_nilai\" : \"Quiz Smt 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/sisko/patch/jenisnilai/byId/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"patch",
+						"jenisnilai",
+						"byId",
+						"7"
+					],
+					"query": [
+						{
+							"key": "nip",
+							"value": "1ab",
+							"disabled": true
+						},
+						{
+							"key": "nama_guru",
+							"value": "jhon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user by id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"tutung\",\r\n    \"password\" : \"tutung\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/sisko/patch/user/byId/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"patch",
+						"user",
+						"byId",
+						"3"
+					],
+					"query": [
+						{
+							"key": "nip",
+							"value": "1ab",
+							"disabled": true
+						},
+						{
+							"key": "nama_guru",
+							"value": "jhon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update jenis nilai by id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama_guru\" : \"bodo\",\r\n    \"alamat\" : \"alamat\",\r\n    \"no_telepon\" : \"08999\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/sisko/patch/guru/byNip/989898989",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"patch",
+						"guru",
+						"byNip",
+						"989898989"
+					],
+					"query": [
+						{
+							"key": "nip",
+							"value": "1ab",
+							"disabled": true
+						},
+						{
+							"key": "nama_guru",
+							"value": "jhon",
+							"disabled": true
+						}
 					]
 				}
 			},
