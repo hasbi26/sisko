@@ -38,7 +38,7 @@ class GET extends SEKOLAH_Controller {
 				# code...
 				//print_r($value);
 				$data[] = array(
-					'nis' => $value->nis,
+					'nis' => $value->id,
 					'id' => $value->id_user,
 					'nama' => $value->nama,
 					'alamat' => $value->alamat,
