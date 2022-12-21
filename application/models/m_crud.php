@@ -102,7 +102,7 @@
             return $this->insert();
         }
 
-        public function customQuery($select,$table,$join, $where, $orderby ="", $ordertype = "", $limit="", $start=""){
+        public function customQuery($select, $table, $join, $where, $orderby ="", $ordertype = "", $limit="", $start=""){
 
             $this->db->select($select);
             $this->db->from($table.' a');

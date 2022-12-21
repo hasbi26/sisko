@@ -57,29 +57,32 @@ class GET extends SEKOLAH_Controller {
 		
 	}
 
-	public function nilai_by_nik(){ //untuk datatable
+	public function nilai_by_nis(){ //suntuk datatable
 		
-		$nik = $this->input->get('nik');
+		$nis = $this->input->get('nis');
 		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
 		$limit = $this->input->get('limit'); //tampilkan sebanyak
 		$orderby = $this->input->get('order_by'); //nama field
 		$ordertype = $this->input->get('order_type'); // ASC / DESC
-
-		$select = "c.nik, c.nama, b.nama_pelajaran, a.nilai, d.jenis_nilai";
+	
+		$select = "a.* , b.nilai,c.nama_pelajaran, d.jenis_nilai";
 
 		$join = array(
-			"skl_master_pelajaran b" => "on a.id_pelajaran = b.id_pelajaran",
-			"skl_master_murid c" => "on c.nik = a.id_murid",
-			"skl_master_jenis_nilai d" => "on d.id_jenis_nilai = a.id_jenis_nilai"
+			"skl_trx_nilai b" => "ON a.id = b.id_murid",
+			 "skl_master_pelajaran c" =>" ON b.id_pelajaran = c.id",
+			"skl_master_jenis_nilai d" => "ON b.id_jenis_nilai = d.id "
 		);
 
 		$where = array(
-			"nik" => $nik
+			"a.id" => $nis
 		);
 		
-		$resp = $this->M_crud->customQuery($select, $join, $where, $orderby, $ordertype, $limit, $start);
-		// exit;
-		$resp_all = $this->M_crud->customQuery($select, $join, $where, $orderby, $ordertype);
+		$table = 'skl_master_murid';
+
+
+		$resp = $this->M_crud->customQuery($select, $table, $join, $where, $orderby, $ordertype, $limit, $start);
+		//  exit;
+		$resp_all = $this->M_crud->customQuery($select, $table, $join, $where, $orderby, $ordertype);
 		// var_dump($resp);
 		// exit;
 
@@ -91,7 +94,7 @@ class GET extends SEKOLAH_Controller {
 				# code...
 				//print_r($value);
 				$data[] = array(
-					'nik' => $value->nik,
+					'nis' => $value->id,
 					'nama' => $value->nama,
 					'nama_pelajaran' => $value->nama_pelajaran,
 					'nilai' => $value->nilai,

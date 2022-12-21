@@ -60,7 +60,7 @@ $route['login'] = 'post/login';
 $route['getmurid'] = 'get/murid';
 $route['getnilai'] = 'get/nilai';
 $route['absen'] = 'get/absen';
-$route['getNilaiByNik'] = 'get/nilai_by_nik';
+$route['getNilaiByNis'] = 'get/nilai_by_nis';
 $route['getOpsi'] = 'get/opsi';
 
 $route['addguru'] = "post/addGuru";
