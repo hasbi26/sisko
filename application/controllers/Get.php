@@ -20,7 +20,7 @@ class GET extends SEKOLAH_Controller {
 			'c.id' => $this->input->get('id')
 		);
 
-		$select = "a.nama, a.nis,a.alamat,a.image,a.telepon,c.id as id_user";
+		$select = "a.nama, a.id,a.alamat,a.image,a.telepon,c.id as id_user";
 
 		$join = array(
 			"skl_mapping_murid_by_user b" => "ON a.id = b.id_murid",
