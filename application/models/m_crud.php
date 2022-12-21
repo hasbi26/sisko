@@ -102,10 +102,10 @@
             return $this->insert();
         }
 
-        public function customQuery($select, $join, $where, $orderby, $ordertype, $limit="", $start=""){
+        public function customQuery($select,$table,$join, $where, $orderby ="", $ordertype = "", $limit="", $start=""){
 
-            $this->db->select('c.nik, c.nama, b.nama_pelajaran, a.nilai, d.jenis_nilai');
-            $this->db->from('skl_trx_nilai a');
+            $this->db->select($select);
+            $this->db->from($table.' a');
 
             foreach ($join as $key => $value) {
                 # code...

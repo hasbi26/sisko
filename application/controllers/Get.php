@@ -15,11 +15,21 @@ class GET extends SEKOLAH_Controller {
 	public function murid(){
 		
 		$this->load->model('M_crud');
+
 		$where = array(
-			'id_user' => $this->input->get('id_user')
+			'c.id' => $this->input->get('id')
 		);
 
-		$resp = $this->M_crud->pub_multi_where('skl_master_murid', $where);
+		$select = "a.nama, a.nis,a.alamat,a.image,a.telepon,c.id as id_user";
+
+		$join = array(
+			"skl_mapping_murid_by_user b" => "ON a.id = b.id_murid",
+			"skl_master_user c" => "ON b.id_user = c.id",
+		);
+
+		$table = 'skl_master_murid';
+
+		$resp = $this->M_crud->customQuery($select, $table, $join, $where);
 
 		$data = array();
 		if($resp->num_rows() > 0){
@@ -28,9 +38,8 @@ class GET extends SEKOLAH_Controller {
 				# code...
 				//print_r($value);
 				$data[] = array(
-					'nik' => $value->nik,
-					'id_user' => $value->id_user,
-					'id_sekolah' => $value->id_sekolah,
+					'nis' => $value->nis,
+					'id' => $value->id_user,
 					'nama' => $value->nama,
 					'alamat' => $value->alamat,
 					'telepon' => $value->alamat,
@@ -68,18 +77,6 @@ class GET extends SEKOLAH_Controller {
 			"nik" => $nik
 		);
 		
-		// $query = "select c.nik, c.nama, b.nama_pelajaran, a.nilai, d.jenis_nilai from skl_trx_nilai a ".
-		// 		"join skl_master_pelajaran b on a.id_pelajaran = b.id_pelajaran join skl_master_murid c on c.nik = a.id_murid ".
-		// 		"join skl_master_jenis_nilai d on d.id_jenis_nilai = a.id_jenis_nilai where nik = '{$nik}' ";
-		
-		// if($orderby !== "" && $ordertype !== ""){
-		// 	$query .= "ORDER BY {$orderby} {$ordertype} ";
-		// }
-
-		// //$resp_all = $this->M_crud->customQuery2($query);
-		
-		// $query .= "LIMIT {$limit} OFFSET {$start}";
-		//echo $query;exit;
 		$resp = $this->M_crud->customQuery($select, $join, $where, $orderby, $ordertype, $limit, $start);
 		// exit;
 		$resp_all = $this->M_crud->customQuery($select, $join, $where, $orderby, $ordertype);
