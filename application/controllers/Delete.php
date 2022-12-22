@@ -129,6 +129,28 @@ class DELETE extends SEKOLAH_Controller {
 	}
 
 
+	public function roleById($Id){
+
+		$resp = $this->M_crud->pub_delete_where('skl_master_role', array('id' => $Id));
+		
+        $title = 'Delete role by id';
+        $code = 200;
+        $data = array();
+
+        if(!$resp){
+			$title = 'Delete role by id';
+			$code = 204;
+			$data = array();
+		}
+
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+
+	}
+
+
+	
+
 		
 
 }

@@ -17,8 +17,8 @@
         private function multi_where(){
             $this->db->where($this->where);
             $query = $this->db->get($this->table_name);
-            //print_r($this->db->last_query());
-            //exit;
+            // print_r($this->db->last_query());
+            // exit;
 
             return $query;
         }
@@ -67,6 +67,7 @@
             $this->table_name = $table;
             $this->where = $arr;
             return $this->multi_where();
+ 
         }
 
         public function all($table, $limit="", $start="", $orderBy="", $orderType=""){

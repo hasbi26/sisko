@@ -19,12 +19,12 @@ class Post extends SEKOLAH_Controller {
 
 		$where = array(
 			'username' => $this->input->post('username'),
-			'password' => MD5($this->input->post('password'))
-			// 'password' => $this->input->post('password')
+			// 'password' => MD5($this->input->post('password')),
+			'password' => $this->input->post('password'),
+			// 'id_role' => $this->input->post('id_role')
 		);
 
-		$resp = $this->M_crud->pub_multi_where('skl_master_user', $where);
-
+		$resp = $this->M_crud->pub_multi_where('skl_master_user', $where);		
 		$title = 'Get User';
 		$data = ($resp->num_rows() > 0) ? array(
 			'id_user' => $resp->row()->id,
@@ -96,6 +96,17 @@ class Post extends SEKOLAH_Controller {
 
 		$resp = $this->M_crud->pub_insert('skl_master_opsi', $this->input->post());
 		$title = 'Insert Opsi';
+		$code = ($resp) ? 201 : 409;
+		$data = array();
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
+
+	public function addrole(){
+
+		$resp = $this->M_crud->pub_insert('skl_master_role', $this->input->post());
+		$title = 'Insert Role';
 		$code = ($resp) ? 201 : 409;
 		$data = array();
 

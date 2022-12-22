@@ -45,18 +45,18 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/sekolah_be/getNilaiByNik?nik=123&limit=10&offset=0&order_by=&order_type=",
+					"raw": "http://localhost/sisko/getNilaiByNis?nis=123&limit=10&offset=0&order_by=&order_type=",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
-						"sekolah_be",
-						"getNilaiByNik"
+						"sisko",
+						"getNilaiByNis"
 					],
 					"query": [
 						{
-							"key": "nik",
+							"key": "nis",
 							"value": "123"
 						},
 						{
@@ -179,6 +179,45 @@
 		},
 		{
 			"name": "get user all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/user/all?start=0&limit=2&order_by&order_type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"user",
+						"all"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "order_by",
+							"value": null
+						},
+						{
+							"key": "order_type",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get role all",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -425,7 +464,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/sisko/get/pelajaran/byId?id_pelajaran=3",
+					"raw": "http://localhost/sisko/get/murid/byId?id=4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -433,13 +472,40 @@
 					"path": [
 						"sisko",
 						"get",
-						"pelajaran",
+						"murid",
 						"byId"
 					],
 					"query": [
 						{
-							"key": "id_pelajaran",
-							"value": "3"
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get role by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/murid/byId?id=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"murid",
+						"byId"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
 						}
 					]
 				}
@@ -636,7 +702,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"jenis_nilai\" : \"Quiz Smt 1\"\r\n}",
+					"raw": "{\r\n    \"nama_pelajaran\" : \"IPA Kelas 11\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -644,7 +710,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost/sisko/patch/jenisnilai/byId/7",
+					"raw": "http://localhost/sisko/patch/pelajaran/byId/1000",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -652,9 +718,9 @@
 					"path": [
 						"sisko",
 						"patch",
-						"jenisnilai",
+						"pelajaran",
 						"byId",
-						"7"
+						"1000"
 					],
 					"query": [
 						{
@@ -696,6 +762,49 @@
 						"sisko",
 						"patch",
 						"user",
+						"byId",
+						"3"
+					],
+					"query": [
+						{
+							"key": "nip",
+							"value": "1ab",
+							"disabled": true
+						},
+						{
+							"key": "nama_guru",
+							"value": "jhon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update role by id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama_role\" : \"update role\",\r\n    \"keterangan\" : \"update keterangan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/sisko/patch/role/byId/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"patch",
+						"role",
 						"byId",
 						"3"
 					],

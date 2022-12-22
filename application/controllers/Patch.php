@@ -168,8 +168,30 @@ class PATCH extends SEKOLAH_Controller {
 	
 
 	
-	
+	public function roleById($Id){
+		
+		$body = json_validator(file_get_contents('php://input'));
 
+		if(!$body){
+			$title = 'Update Role By ID';
+			$code = 400;
+			$data = array();
+		}
+
+		$resp = $this->M_crud->pub_update_where('skl_master_role', $body, array('id' => $Id));
+		//var_dump($resp);exit;
+		$title = 'Update Role By ID';
+		$code = 200;
+		$data = array();
+
+		if(!$resp){
+			$title = 'Update Role By ID';
+			$code = 204;
+			$data = array();
+		}
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
 
 
 

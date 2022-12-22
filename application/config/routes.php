@@ -105,6 +105,13 @@ $route['get/opsi/byId'] = "get/opsiById";
 $route['get/opsi/all'] = "get/opsiAll";
 
 
+$route['addrole'] = "post/addrole";
+$route['patch/role/byId/(:any)'] = "patch/roleById/$1";
+$route['delete/role/byId/(:any)'] = "delete/roleById/$1";
+$route['get/role/byId'] = "get/roleById";
+$route['get/role/all'] = "get/roleAll";
+
+
 
 
 $route['logs'] = "logViewerController/index";

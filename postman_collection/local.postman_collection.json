@@ -28,13 +28,19 @@
 					"urlencoded": [
 						{
 							"key": "username",
-							"value": "test",
+							"value": "admin",
 							"type": "default"
 						},
 						{
 							"key": "password",
-							"value": "test",
+							"value": "admin",
 							"type": "default"
+						},
+						{
+							"key": "id_role",
+							"value": "1",
+							"type": "default",
+							"disabled": true
 						}
 					]
 				},
@@ -58,7 +64,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/sisko/getmurid?id_user=2",
+					"raw": "http://localhost/sisko/getmurid?id=123",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -69,8 +75,8 @@
 					],
 					"query": [
 						{
-							"key": "id_user",
-							"value": "2"
+							"key": "id",
+							"value": "123"
 						}
 					]
 				},
@@ -356,6 +362,76 @@
 			"response": []
 		},
 		{
+			"name": "saverole",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nama_role",
+							"value": "role test",
+							"type": "default"
+						},
+						{
+							"key": "keterangan",
+							"value": "keterangan",
+							"type": "default"
+						},
+						{
+							"key": "id_sekolah",
+							"value": "2",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "id_kelas",
+							"value": "6",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "nama",
+							"value": "messi",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "alamat",
+							"value": "kabupaten cicalengka",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "telepon",
+							"value": "10101",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "image",
+							"value": "siswa.jpg",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sisko/addrole",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"addrole"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "patchguru",
 			"request": {
 				"method": "PATCH",
@@ -431,7 +507,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/sisko/delete/user/byId/3",
+					"raw": "http://localhost/sisko/delete/pelajaran/byId/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -439,7 +515,7 @@
 					"path": [
 						"sisko",
 						"delete",
-						"user",
+						"pelajaran",
 						"byId",
 						"3"
 					]
@@ -506,6 +582,28 @@
 						"sisko",
 						"delete",
 						"opsi",
+						"byId",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del role",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/delete/role/byId/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"delete",
+						"role",
 						"byId",
 						"3"
 					]
