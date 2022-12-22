@@ -47,7 +47,7 @@ class PATCH extends SEKOLAH_Controller {
 			$data = array();
 		}
 
-		$resp = $this->M_crud->pub_update_where('skl_master_pelajaran', $body, array('id_pelajaran' => $Id));
+		$resp = $this->M_crud->pub_update_where('skl_master_pelajaran', $body, array('id' => $Id));
 		//var_dump($resp);exit;
 		$title = 'Update Pelajaran By ID';
 		$code = 200;

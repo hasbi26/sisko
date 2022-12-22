@@ -35,7 +35,7 @@ class DELETE extends SEKOLAH_Controller {
 
     public function pelajaranById($Id){
 
-		$resp = $this->M_crud->pub_delete_where('skl_master_pelajaran', array('id_pelajaran' => $Id));
+		$resp = $this->M_crud->pub_delete_where('skl_master_pelajaran', array('id' => $Id));
 		
         $title = 'Delete Pelajaran By Id';
         $code = 200;
