@@ -73,7 +73,7 @@ class DELETE extends SEKOLAH_Controller {
 
 	public function jenisnilaiById($Id){
 
-		$resp = $this->M_crud->pub_delete_where('skl_master_jenis_nilai', array('id_jenis_nilai' => $Id));
+		$resp = $this->M_crud->pub_delete_where('skl_master_jenis_nilai', array('id' => $Id));
 		
         $title = 'Delete jenis nilai by id';
         $code = 200;
