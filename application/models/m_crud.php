@@ -69,8 +69,8 @@
         private function call_sp(){
 
             $query = $this->db->query("CALL $this->spname('{$this->username}', '{$this->password}')");
-            print_r($this->db->last_query());
-            exit;
+            // print_r($this->db->last_query());
+            // exit;
             return $query;
         }
 

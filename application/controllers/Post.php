@@ -22,7 +22,9 @@ class Post extends SEKOLAH_Controller {
 			'password' => MD5($this->input->post('password'))
 		);
 
-		$resp = $this->M_crud->pub_multi_where('skl_master_user', $where);		
+		$resp = $this->M_crud->pub_multi_where('skl_master_user', $where);	
+		// var_dump($resp->num_rows());
+		// exit;	
 		$title = 'Get User';
 		if ($resp->num_rows() > 0) {
 
