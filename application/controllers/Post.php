@@ -19,14 +19,13 @@ class Post extends SEKOLAH_Controller {
 
 		$where = array(
 			'username' => $this->input->post('username'),
-			// 'password' => MD5($this->input->post('password')),
-			'password' => $this->input->post('password'),
-			// 'id_role' => $this->input->post('id_role')
+			'password' => MD5($this->input->post('password'))
 		);
 
 		$resp = $this->M_crud->pub_multi_where('skl_master_user', $where);		
 		$title = 'Get User';
 		if ($resp->num_rows() > 0) {
+
 			$data =	array(
 				'id_user' => $resp->row()->id,
 				'username' => $resp->row()->username,
@@ -36,13 +35,16 @@ class Post extends SEKOLAH_Controller {
 				'alamat' => $resp->row()->alamat,
 				'no_telp' => $resp->row()->no_telp,
 				'id_role' => $resp->row()->id_role,
-			
 			);
-				$this->M_crud->pub_call_sp('UpdateLastLogin', $resp->row()->username, $resp->row()->password);
-
+			
+			$updateLastLogin = $this->M_crud->pub_call_sp('UpdateLastLogin', $resp->row()->username, $resp->row()->password);
+			// print_r($updateLastLogin);
+			// exit;
 
 		} else {
-		$data =array();
+
+			$data = array();
+			
 		}
 		
 
