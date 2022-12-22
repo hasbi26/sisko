@@ -14,6 +14,10 @@
         private $body;
         private $value;
 
+        private $spname;
+        private $username;
+        private $password;
+
         private function multi_where(){
             $this->db->where($this->where);
             $query = $this->db->get($this->table_name);
@@ -60,6 +64,14 @@
         
         private function insert(){
             return $this->db->insert($this->table_name, $this->value);
+        }
+
+        private function call_sp(){
+
+            $query = $this->db->query("CALL $this->spname($this->username, $this->password)");
+                        print_r($this->db->last_query());
+            exit;
+            return $query->result();
         }
 
         public function pub_multi_where($table, $arr){
@@ -130,6 +142,13 @@
 
             return $resp;
 
+        }
+
+        public function pub_call_sp($spname, $username, $password){
+            $this->spname = $spname;
+            $this->username = $username;
+            $this->password = $password;
+            return $this->call_sp();
         }
     }
 

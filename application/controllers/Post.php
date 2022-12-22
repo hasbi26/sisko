@@ -26,10 +26,26 @@ class Post extends SEKOLAH_Controller {
 
 		$resp = $this->M_crud->pub_multi_where('skl_master_user', $where);		
 		$title = 'Get User';
-		$data = ($resp->num_rows() > 0) ? array(
-			'id_user' => $resp->row()->id,
-			'username' => $resp->row()->username
-		) : array();
+		if ($resp->num_rows() > 0) {
+			$data =	array(
+				'id_user' => $resp->row()->id,
+				'username' => $resp->row()->username,
+				'password' => $resp->row()->password,
+				'image' => $resp->row()->image,
+				'nama' => $resp->row()->nama,
+				'alamat' => $resp->row()->alamat,
+				'no_telp' => $resp->row()->no_telp,
+				'id_role' => $resp->row()->id_role,
+			
+			);
+				$this->M_crud->pub_call_sp('UpdateLastLogin', $resp->row()->username, $resp->row()->password);
+
+
+		} else {
+		$data =array();
+		}
+		
+
 		// $data = (count($resp) > 0) ? $resp[0]  : 0 ;
 		$code = ($resp->num_rows() > 0) ? 200 : 404;
 		// $code = (count($resp)  > 0) ? 200 : 404;
