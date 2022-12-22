@@ -63,7 +63,7 @@ class PATCH extends SEKOLAH_Controller {
 	}
 
 
-	public function muridByNik($Nik){
+	public function muridById($Id){
 		
 		$body = json_validator(file_get_contents('php://input'));
 
@@ -73,7 +73,7 @@ class PATCH extends SEKOLAH_Controller {
 			$data = array();
 		}
 
-		$resp = $this->M_crud->pub_update_where('skl_master_murid', $body, array('nik' => $Nik));
+		$resp = $this->M_crud->pub_update_where('skl_master_murid', $body, array('id' => $Id));
 		//var_dump($resp);exit;
 		$title = 'Update murid By ID';
 		$code = 200;
@@ -102,7 +102,7 @@ class PATCH extends SEKOLAH_Controller {
 
 		$resp = $this->M_crud->pub_update_where('skl_master_jenis_nilai', $body, array('id' => $Id));
 		//var_dump($resp);exit;
-		$title = 'Update murid By ID';
+		$title = 'Update Jenis Nilai By ID';
 		$code = 200;
 		$data = array();
 

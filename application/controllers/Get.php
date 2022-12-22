@@ -263,7 +263,7 @@ class GET extends SEKOLAH_Controller {
 
 	}
 
-	public function muridByNik(){
+	public function muridById(){
 		$resp = $this->M_crud->pub_multi_where('skl_master_murid', $this->input->get());
 
 		$data = array();

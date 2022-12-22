@@ -78,9 +78,9 @@ $route['get/pelajaran/all'] = "get/pelajaranAll";
 
 
 $route['addmurid'] = "post/addmurid";
-$route['patch/murid/byNik/(:any)'] = "patch/muridByNik/$1";
-$route['delete/murid/byNik/(:any)'] = "delete/muridByNik/$1";
-$route['get/murid/byNik'] = "get/muridByNik";
+$route['patch/murid/byId/(:any)'] = "patch/muridById/$1";
+$route['delete/murid/byId/(:any)'] = "delete/muridById/$1";
+$route['get/murid/byId'] = "get/muridById";
 $route['get/murid/all'] = "get/muridAll";
 
 

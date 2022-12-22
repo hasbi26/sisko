@@ -52,16 +52,16 @@ class DELETE extends SEKOLAH_Controller {
 
 	}
 
-	public function muridByNik($Nik){
+	public function muridById($Id){
 
-		$resp = $this->M_crud->pub_delete_where('skl_master_murid', array('nik' => $Nik));
+		$resp = $this->M_crud->pub_delete_where('skl_master_murid', array('Id' => $Id));
 		
-        $title = 'Delete murid By Nik';
+        $title = 'Delete murid By Id';
         $code = 200;
         $data = array();
 
         if(!$resp){
-			$title = 'Delete murid By Nik';
+			$title = 'Delete murid By Id';
 			$code = 204;
 			$data = array();
 		}
