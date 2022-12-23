@@ -118,7 +118,7 @@
         public function customQuery($select, $table, $join, $where, $orderby ="", $ordertype = "", $limit="", $start=""){
 
             $this->db->select($select);
-            $this->db->from($table.' a');
+            $this->db->from($table.' A');
 
             foreach ($join as $key => $value) {
                 # code...

@@ -421,9 +421,19 @@ class GET extends SEKOLAH_Controller {
 		$orderby = $this->input->get('order_by'); //nama field
 		$ordertype = $this->input->get('order_type'); // ASC / DESC
 
-		$resp = $this->M_crud->all('skl_master_user', $start, $limit, $orderby, $ordertype);
+		$select = "A.*, B.nama_role as role";
+		$table = 'skl_master_user';
+		$join = array(
+			"skl_master_role B" => "ON A.id_role = B.id",
+		);
+
+		$resp = $this->M_crud->customQuery($select, $table, $join, array(), $orderby, $ordertype, $limit, $start);
 		//exit;
-		$resp_all = $this->M_crud->all('skl_master_user');
+		$resp_all = $this->M_crud->customQuery($select, $table, $join, array());
+
+		//$resp = $this->M_crud->all('skl_master_user', $start, $limit, $orderby, $ordertype);
+		//exit;
+		//$resp_all = $this->M_crud->all('skl_master_user');
 
 		$data = array();
 
