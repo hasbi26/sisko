@@ -28,6 +28,27 @@ class Post extends SEKOLAH_Controller {
 		$title = 'Get User';
 		if ($resp->num_rows() > 0) {
 
+			$role = $resp->row()->id_role;
+			//get menu
+
+			$select = "B.*";
+
+			$table = 'skl_akses_menu_by_role';
+
+			$where = array(
+				'A.role' => $role, 
+				'A.status' => '1'
+			);
+
+			$join = array(
+				"skl_menu_config B" => "ON A.id_menu = B.id"
+			);
+
+			$menu = $this->M_crud->customQuery($select, $table, $join, $where);
+			$my_menu = ($menu->num_rows() > 0) ? $menu->result_array() : array();
+			// print_r($menu->result_array());
+			// exit;
+
 			$data =	array(
 				'id_user' => $resp->row()->id,
 				'username' => $resp->row()->username,
@@ -37,11 +58,10 @@ class Post extends SEKOLAH_Controller {
 				'alamat' => $resp->row()->alamat,
 				'no_telp' => $resp->row()->no_telp,
 				'id_role' => $resp->row()->id_role,
+				'menu' => $my_menu
 			);
 			
 			$updateLastLogin = $this->M_crud->pub_call_sp('UpdateLastLogin', $resp->row()->username, $resp->row()->password);
-			// print_r($updateLastLogin);
-			// exit;
 
 		} else {
 
@@ -49,11 +69,7 @@ class Post extends SEKOLAH_Controller {
 			
 		}
 		
-
-		// $data = (count($resp) > 0) ? $resp[0]  : 0 ;
 		$code = ($resp->num_rows() > 0) ? 200 : 404;
-		// $code = (count($resp)  > 0) ? 200 : 404;
-		// count($query) 
 		echo skl_response($code, $title, $data, getCodeText($code));
 		
 	}
@@ -127,6 +143,16 @@ class Post extends SEKOLAH_Controller {
 
 		$resp = $this->M_crud->pub_insert('skl_master_role', $this->input->post());
 		$title = 'Insert Role';
+		$code = ($resp) ? 201 : 409;
+		$data = array();
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
+	public function addnilai(){
+
+		$resp = $this->M_crud->pub_insert('skl_trx_nilai', $this->input->post());
+		$title = 'Insert Nilai';
 		$code = ($resp) ? 201 : 409;
 		$data = array();
 

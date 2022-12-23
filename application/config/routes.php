@@ -111,6 +111,12 @@ $route['delete/role/byId/(:any)'] = "delete/roleById/$1";
 $route['get/role/byId'] = "get/roleById";
 $route['get/role/all'] = "get/roleAll";
 
+//transaksi
+$route['addnilai'] = "post/addnilai";
+$route['patch/nilai/byId/(:any)'] = "patch/nilaiById/$1";
+$route['delete/nilai/byId/(:any)'] = "delete/nilaiById/$1";
+$route['get/nilai/byId'] = "get/nilaiById";
+$route['get/nilai/all'] = "get/nilaiAll";
 
 
 

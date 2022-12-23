@@ -336,7 +336,54 @@ class GET extends SEKOLAH_Controller {
 		
 	}
 
-	
+	public function nilaiById(){
+		$resp = $this->M_crud->pub_multi_where('skl_trx_nilai', $this->input->get());
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get nilai By Id';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
+	}
+
+	public function nilaiAll(){ //untuk datatable
+
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+
+		$resp = $this->M_crud->all('skl_trx_nilai', $start, $limit, $orderby, $ordertype);
+		//exit;
+		$resp_all = $this->M_crud->all('skl_trx_nilai');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All nilai';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+
+	}
 
 	public function jenisnilaiAll(){ //untuk datatable
 

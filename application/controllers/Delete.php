@@ -148,6 +148,23 @@ class DELETE extends SEKOLAH_Controller {
 
 	}
 
+	public function nilaiById($Id){
+
+		$resp = $this->M_crud->pub_delete_where('skl_trx_nilai', array('id_nilai' => $Id));
+		
+        $title = 'Delete nilai by id';
+        $code = 200;
+        $data = array();
+
+        if(!$resp){
+			$code = 204;
+		}
+
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+
+	}
+
 
 	
 
