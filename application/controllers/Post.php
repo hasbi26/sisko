@@ -206,6 +206,29 @@ class Post extends SEKOLAH_Controller {
 	}
 
 
+
+	public function addtingkat(){
+
+		$resp = $this->M_crud->pub_insert('skl_master_tingkat', $this->input->post());
+		$title = 'Insert Tingkat';
+		$code = ($resp) ? 201 : 409;
+		$data = array();
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
+
+	public function addkelas(){
+
+		$resp = $this->M_crud->pub_insert('skl_master_kelas', $this->input->post());
+		$title = 'Insert Tingkat';
+		$code = ($resp) ? 201 : 409;
+		$data = array();
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
+
 	
 
 

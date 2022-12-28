@@ -600,7 +600,7 @@ class GET extends SEKOLAH_Controller {
 
 		}
 
-		$title = 'Get role By Id';
+		$title = 'Get tingkta By Id';
 		$code = ($resp->num_rows() > 0) ? 200 : 404;
 
 		echo skl_response($code, $title, $data, getCodeText($code));
@@ -707,6 +707,9 @@ class GET extends SEKOLAH_Controller {
 		echo skl_response($code, $title, $data, getCodeText($code));
 		
 	}
+
+
+
 
 
 }

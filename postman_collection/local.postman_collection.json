@@ -64,7 +64,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/sisko/getmurid?id=123",
+					"raw": "http://localhost/sisko/getmurid?id=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -76,7 +76,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "123"
+							"value": "1"
 						}
 					]
 				},
@@ -124,6 +124,114 @@
 					"path": [
 						"sisko",
 						"addopsi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "savetingkat",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tingkat",
+							"value": "5",
+							"type": "default"
+						},
+						{
+							"key": "keterangan",
+							"value": "test keterangan",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "api",
+							"value": "test api",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "no_telepon",
+							"value": "089898",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sisko/addtingkat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"addtingkat"
+					],
+					"query": [
+						{
+							"key": "tingkat",
+							"value": "6",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "savekelas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "kelas",
+							"value": "F",
+							"type": "default"
+						},
+						{
+							"key": "keterangan",
+							"value": "test keterangan",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "api",
+							"value": "test api",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "no_telepon",
+							"value": "089898",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sisko/addkelas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"addkelas"
+					],
+					"query": [
+						{
+							"key": "tingkat",
+							"value": "6",
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -606,6 +714,50 @@
 						"role",
 						"byId",
 						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del tingkat",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/delete/tingkat/byId/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"delete",
+						"tingkat",
+						"byId",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del kelas",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/delete/kelas/byId/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"delete",
+						"kelas",
+						"byId",
+						"4"
 					]
 				}
 			},

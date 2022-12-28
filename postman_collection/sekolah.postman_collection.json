@@ -183,7 +183,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/sisko/get/user/all?start=0&limit=2&order_by&order_type",
+					"raw": "http://localhost/sisko/get/role/all?start=0&limit=2&order_by&order_type",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -191,7 +191,7 @@
 					"path": [
 						"sisko",
 						"get",
-						"user",
+						"role",
 						"all"
 					],
 					"query": [
@@ -373,6 +373,84 @@
 			"response": []
 		},
 		{
+			"name": "get tingkat all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/tingkat/all?start=1&limit=3&order_by&order_type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"tingkat",
+						"all"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "order_by",
+							"value": null
+						},
+						{
+							"key": "order_type",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get kelas all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/kelas/all?start=1&limit=3&order_by&order_type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"kelas",
+						"all"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "order_by",
+							"value": null
+						},
+						{
+							"key": "order_type",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "get guru by nip",
 			"request": {
 				"method": "GET",
@@ -464,7 +542,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/sisko/get/murid/byId?id=4",
+					"raw": "http://localhost/sisko/get/role/byId?id=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -472,13 +550,13 @@
 					"path": [
 						"sisko",
 						"get",
-						"murid",
+						"role",
 						"byId"
 					],
 					"query": [
 						{
 							"key": "id",
-							"value": "4"
+							"value": "1"
 						}
 					]
 				}
@@ -532,6 +610,60 @@
 					"query": [
 						{
 							"key": "id_pelajaran",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get tingkat by id Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/tingkat/byId?id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"tingkat",
+						"byId"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get kelas by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/kelas/byId?id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"kelas",
+						"byId"
+					],
+					"query": [
+						{
+							"key": "id",
 							"value": "3"
 						}
 					]
@@ -850,6 +982,92 @@
 						"guru",
 						"byNip",
 						"989898989"
+					],
+					"query": [
+						{
+							"key": "nip",
+							"value": "1ab",
+							"disabled": true
+						},
+						{
+							"key": "nama_guru",
+							"value": "jhon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update tingkat by id Copy",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tingkat\" : \"26\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/sisko/patch/tingkat/byId/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"patch",
+						"tingkat",
+						"byId",
+						"4"
+					],
+					"query": [
+						{
+							"key": "nip",
+							"value": "1ab",
+							"disabled": true
+						},
+						{
+							"key": "nama_guru",
+							"value": "jhon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update kelas by id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"kelas\" : \"26\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/sisko/patch/kelas/byId/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"patch",
+						"kelas",
+						"byId",
+						"4"
 					],
 					"query": [
 						{
