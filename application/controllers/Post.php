@@ -164,23 +164,43 @@ class Post extends SEKOLAH_Controller {
 		//print_r($this->input->post());
 		$this->load->model('M_crud');
 
-		$where = array(
-			'username' => $this->input->post('username'),
-			'password' => MD5($this->input->post('password'))
-			// 'password' => $this->input->post('password')
+		//param untuk insert
+		$now = date("Y-m-d H:i:s");
+
+		$date = array(
+			'date' => $now
 		);
 
-		$resp = $this->M_crud->pub_multi_where('skl_master_user', $where);
+		$body = array_merge($date, $this->input->post());
+		//param untuk insert
 
-		$title = 'Get User';
-		$data = ($resp->num_rows() > 0) ? array(
-			'id_user' => $resp->row()->id,
-			'username' => $resp->row()->username
-		) : array();
-		// $data = (count($resp) > 0) ? $resp[0]  : 0 ;
-		$code = ($resp->num_rows() > 0) ? 200 : 404;
-		// $code = (count($resp)  > 0) ? 200 : 404;
-		// count($query) 
+		//param check jika data exist by id murid dan date
+		$where_date = array(
+			'DATE(date)' => date("Y-m-d", strtotime($now))
+		);
+
+		unset($_POST['keterangan']);
+		unset($_POST['status']);
+		//param check jika data exist by id murid dan date
+
+		$where_exist = array_merge($where_date, $this->input->post());
+		$if_exist = $this->M_crud->pub_multi_where('skl_trx_absen',$where_exist);
+
+		$title = 'Insert Absen';
+
+		if($if_exist->num_rows() > 0){
+
+			$code = 409;
+			$data = array();
+
+		}else{
+
+			$resp = $this->M_crud->pub_insert('skl_trx_absen', $body);
+
+			$code = ($resp) ? 201 : 409;
+			$data = array();
+		}
+
 		echo skl_response($code, $title, $data, getCodeText($code));
 		
 	}

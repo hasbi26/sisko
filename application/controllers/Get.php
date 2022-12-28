@@ -138,11 +138,19 @@ class GET extends SEKOLAH_Controller {
 		$nik = $this->input->get('id_murid');
 		$id_jenis_nilai = $this->input->get('id_jenis_nilai');
 		
-		$sql = "select nama, checktime, status, keterangan from skl_trx_absen a join skl_master_murid b on a.id_murid = b.nik 
-		where nik = '123' ";
-		$this->db->query($sql, array($nik, $id_jenis_nilai));
+		$select = "a.* , b.nilai,c.nama_pelajaran, d.jenis_nilai";
 
-		$resp = $this->db->query($sql, array($nik, $id_jenis_nilai));
+		$join = array(
+			"skl_trx_nilai b" => "ON a.id = b.id_murid",
+			 "skl_master_pelajaran c" =>" ON b.id_pelajaran = c.id",
+			"skl_master_jenis_nilai d" => "ON b.id_jenis_nilai = d.id "
+		);
+
+		$where = array(
+			"a.id" => $nis
+		);
+		
+		$table = 'skl_master_murid';
 
 		$data = array();
 		if($resp->num_rows() > 0){
@@ -575,6 +583,129 @@ class GET extends SEKOLAH_Controller {
 
 		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
 
+	}
+
+	public function tingkatById(){
+		$resp = $this->M_crud->pub_multi_where('skl_master_tingkat', $this->input->get());
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get role By Id';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
+	}	
+	
+	public function tingkatAll(){ //untuk datatable
+
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+
+		$resp = $this->M_crud->all('skl_master_tingkat', $start, $limit, $orderby, $ordertype);
+		//exit;
+		$resp_all = $this->M_crud->all('skl_master_tingkat');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All Role';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+
+	}
+
+	public function kelasById(){
+		$resp = $this->M_crud->pub_multi_where('skl_master_kelas', $this->input->get());
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get role By Id';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
+	}	
+	
+	public function kelasAll(){ //untuk datatable
+
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+
+		$resp = $this->M_crud->all('skl_master_kelas', $start, $limit, $orderby, $ordertype);
+		//exit;
+		$resp_all = $this->M_crud->all('skl_master_kelas');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All Role';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+
+	}
+
+	public function muridByClass(){
+		//print_r($this->input->get());exit;
+		$resp = $this->M_crud->pub_multi_where('skl_master_murid', $this->input->get());
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get Murid By Class';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
 	}
 
 

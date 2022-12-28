@@ -82,6 +82,7 @@ $route['patch/murid/byId/(:any)'] = "patch/muridById/$1";
 $route['delete/murid/byId/(:any)'] = "delete/muridById/$1";
 $route['get/murid/byId'] = "get/muridById";
 $route['get/murid/all'] = "get/muridAll";
+$route['get/murid/byClass'] = "get/muridByClass";
 
 
 $route['addjenisnilai'] = "post/addjenisnilai";
@@ -104,12 +105,23 @@ $route['delete/opsi/byId/(:any)'] = "delete/opsiById/$1";
 $route['get/opsi/byId'] = "get/opsiById";
 $route['get/opsi/all'] = "get/opsiAll";
 
-
 $route['addrole'] = "post/addrole";
 $route['patch/role/byId/(:any)'] = "patch/roleById/$1";
 $route['delete/role/byId/(:any)'] = "delete/roleById/$1";
 $route['get/role/byId'] = "get/roleById";
 $route['get/role/all'] = "get/roleAll";
+
+$route['addtingkat'] = "post/addtingkat";
+$route['patch/tingkat/byId/(:any)'] = "patch/tingkatById/$1";
+$route['delete/tingkat/byId/(:any)'] = "delete/tingkatById/$1";
+$route['get/tingkat/byId'] = "get/tingkatById";
+$route['get/tingkat/all'] = "get/tingkatAll";
+
+$route['addkelas'] = "post/addkelas";
+$route['patch/kelas/byId/(:any)'] = "patch/kelasById/$1";
+$route['delete/kelas/byId/(:any)'] = "delete/kelasById/$1";
+$route['get/kelas/byId'] = "get/kelasById";
+$route['get/kelas/all'] = "get/kelasAll";
 
 //transaksi
 $route['addnilai'] = "post/addnilai";
@@ -118,13 +130,14 @@ $route['delete/nilai/byId/(:any)'] = "delete/nilaiById/$1";
 $route['get/nilai/byId'] = "get/nilaiById";
 $route['get/nilai/all'] = "get/nilaiAll";
 
+$route['addabsen'] = "post/addabsen";
+$route['patch/absen/byId/(:any)'] = "patch/absenById/$1";
+$route['delete/absen/byId/(:any)'] = "delete/absenById/$1";
+$route['get/absen/byId'] = "get/absenById";
+$route['get/absen/all'] = "get/absenAll";
 
 
 $route['logs'] = "logViewerController/index";
-
-
-
-
 // $route['default_controller'] = 'authController/login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
