@@ -181,9 +181,9 @@ class Post extends SEKOLAH_Controller {
 
 		unset($_POST['keterangan']);
 		unset($_POST['status']);
-		//param check jika data exist by id murid dan date
+		//param check jika data exist by id murid, id pelajaran dan date
 
-		$where_exist = array_merge($where_date, $this->input->post());
+		$where_exist = array_merge($where_date, $this->input->post()); //semua posted data kecuali yg di unset
 		$if_exist = $this->M_crud->pub_multi_where('skl_trx_absen',$where_exist);
 
 		$title = 'Insert Absen';

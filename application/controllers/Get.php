@@ -112,6 +112,62 @@ class GET extends SEKOLAH_Controller {
 		
 	}
 
+	public function absen_by_nis(){ //suntuk datatable
+		
+		$nis = $this->input->get('nis');
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+	
+		$select = "A.date, b.id AS nis, b.alamat, b.image, b.nama, b.telepon, c.nama_pelajaran, d.nama_status";
+
+		$join = array(
+			"skl_master_murid b" => "ON A.id_murid = b.id",
+			"skl_master_pelajaran c" =>" ON A.id_pelajaran = c.id",
+			"skl_master_status_absen d" => "ON A.status = d.id"
+		);
+
+		$where = array(
+			"A.id_murid" => $nis,
+			"DATE(A.date)" => date("Y-m-d")
+		);
+		
+		$table = 'skl_trx_absen';
+
+
+		$resp = $this->M_crud->customQuery($select, $table, $join, $where, $orderby, $ordertype, $limit, $start);
+		//  exit;
+		$resp_all = $this->M_crud->customQuery($select, $table, $join, $where, $orderby, $ordertype);
+		// var_dump($resp);
+		// exit;
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[] = array(
+					'nis' => $value->nis,
+					'nama' => $value->nama,
+					'nama_pelajaran' => $value->nama_pelajaran,
+					'date' => $value->date,
+					'status' => $value->nama_status
+				);
+
+			}
+
+		}
+
+		$title = 'Get nilai By Nik';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+		
+	}
+
 	public function opsi(){
 
 		$resp = $this->M_crud->all('skl_master_opsi');
