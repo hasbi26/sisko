@@ -136,6 +136,18 @@ $route['delete/absen/byId/(:any)'] = "delete/absenById/$1";
 $route['get/absen/byId'] = "get/absenById";
 $route['get/absen/all'] = "get/absenAll";
 
+$route['addmenu'] = "post/addmenu";
+$route['patch/menu/byId/(:any)'] = "patch/menuById/$1";
+$route['delete/menu/byId/(:any)'] = "delete/menuById/$1";
+$route['get/menu/byId'] = "get/menuById";
+$route['get/menu/all'] = "get/menuAll";
+
+$route['addakses'] = "post/addakses";
+$route['patch/akses/byId/(:any)'] = "patch/aksesById/$1";
+$route['delete/akses/byId/(:any)'] = "delete/aksesById/$1";
+$route['get/akses/byId'] = "get/aksesById";
+$route['get/akses/all'] = "get/aksesAll";
+
 
 $route['logs'] = "logViewerController/index";
 // $route['default_controller'] = 'authController/login';

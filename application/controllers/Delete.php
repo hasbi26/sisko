@@ -197,6 +197,36 @@ class DELETE extends SEKOLAH_Controller {
 		echo skl_response($code, $title, $data, getCodeText($code));
 	}
 
+	public function menuById($Id){
+
+		$resp = $this->M_crud->pub_delete_where('skl_menu_config', array('id' => $Id));
+		
+        $title = 'Delete Menu by id';
+        $code = 200;
+        $data = array();
+
+        if(!$resp){
+			$code = 204;
+		}
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
+	public function aksesById($Id){
+
+		$resp = $this->M_crud->pub_delete_where('skl_akses_menu_by_role', array('id_menu' => $Id));
+		
+        $title = 'Delete Akses by id';
+        $code = 200;
+        $data = array();
+
+        if(!$resp){
+			$code = 204;
+		}
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
 	
 	
 	

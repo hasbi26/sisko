@@ -228,6 +228,26 @@ class Post extends SEKOLAH_Controller {
 		echo skl_response($code, $title, $data, getCodeText($code));
 	}
 
+	public function addmenu(){
+
+		$resp = $this->M_crud->pub_insert('skl_menu_config', $this->input->post());
+		$title = 'Insert Menu';
+		$code = ($resp) ? 201 : 409;
+		$data = array();
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
+	public function addakses(){
+
+		$resp = $this->M_crud->pub_insert('skl_akses_menu_by_role', $this->input->post());
+		$title = 'Insert Akses';
+		$code = ($resp) ? 201 : 409;
+		$data = array();
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
 
 	
 

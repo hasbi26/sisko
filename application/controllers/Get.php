@@ -685,6 +685,136 @@ class GET extends SEKOLAH_Controller {
 
 	}
 
+	//
+	public function menuById(){
+		$resp = $this->M_crud->pub_multi_where('skl_menu_config', $this->input->get());
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get menu By Id';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
+	}	
+	
+	public function menuAll(){ //untuk datatable
+
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+
+		$resp = $this->M_crud->all('skl_menu_config', $start, $limit, $orderby, $ordertype);
+		//exit;
+		$resp_all = $this->M_crud->all('skl_menu_config');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All Menu';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+
+	}
+
+	//
+	public function aksesById(){
+
+		$select = "A.*, B.menu, C.nama_role";
+
+		$join = array(
+			"skl_menu_config b" => "ON A.id_menu = b.id",
+			"skl_master_role c" => "ON A.role = c.id",
+		);
+
+		$where = array(
+			'A.id_menu' => $this->input->get('id')
+		);
+
+		$table = 'skl_akses_menu_by_role';
+
+		$resp = $this->M_crud->customQuery($select, $table, $join, $where);
+
+		// $resp = $this->M_crud->pub_multi_where('skl_menu_config', $this->input->get());
+
+		$data = array();
+		
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get akses By Id';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
+	}	
+	
+	public function aksesAll(){ //untuk datatable
+
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+
+		$select = "A.*, B.menu, C.nama_role";
+
+		$join = array(
+			"skl_menu_config b" => "ON A.id_menu = b.id",
+			"skl_master_role c" => "ON A.role = c.id",
+		);
+
+		$where = array();
+
+		$table = 'skl_akses_menu_by_role';
+
+		$resp = $this->M_crud->customQuery($select, $table, $join, $where, $orderby, $ordertype, $limit, $start);
+
+		$resp_all = $this->M_crud->customQuery($select, $table, $join, $where);
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All Akses';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+
+	}
+
 	public function muridByClass(){
 		//print_r($this->input->get());exit;
 		$resp = $this->M_crud->pub_multi_where('skl_master_murid', $this->input->get());

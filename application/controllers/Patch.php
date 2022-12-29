@@ -265,6 +265,52 @@ class PATCH extends SEKOLAH_Controller {
 
 		echo skl_response($code, $title, $data, getCodeText($code));
 	}
+
+	public function menuById($Id){
+		
+		$body = json_validator(file_get_contents('php://input'));
+
+		if(!$body){
+			$title = 'Kelas By ID';
+			$code = 400;
+			$data = array();
+		}
+
+		$resp = $this->M_crud->pub_update_where('skl_menu_config', $body, array('id' => $Id));
+		//var_dump($resp);exit;
+		$title = 'Update Kelas By ID';
+		$code = 200;
+		$data = array();
+
+		if(!$resp){
+			$code = 204;
+		}
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
+	public function aksesById($Id){
+		
+		$body = json_validator(file_get_contents('php://input'));
+
+		if(!$body){
+			$title = 'Kelas By ID';
+			$code = 400;
+			$data = array();
+		}
+
+		$resp = $this->M_crud->pub_update_where('skl_akses_menu_by_role', $body, array('id_menu' => $Id));
+		//var_dump($resp);exit;
+		$title = 'Update Kelas By ID';
+		$code = 200;
+		$data = array();
+
+		if(!$resp){
+			$code = 204;
+		}
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
 	
 
 
