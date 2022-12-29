@@ -20,10 +20,10 @@ class GET extends SEKOLAH_Controller {
 			'c.id' => $this->input->get('id')
 		);
 
-		$select = "a.nama, a.id,a.alamat,a.image,a.telepon,c.id as id_user";
+		$select = "A.nama, A.id,A.alamat,A.image,A.telepon,c.id as id_user";
 
 		$join = array(
-			"skl_mapping_murid_by_user b" => "ON a.id = b.id_murid",
+			"skl_mapping_murid_by_user b" => "ON A.id = b.id_murid",
 			"skl_master_user c" => "ON b.id_user = c.id",
 		);
 
@@ -65,16 +65,16 @@ class GET extends SEKOLAH_Controller {
 		$orderby = $this->input->get('order_by'); //nama field
 		$ordertype = $this->input->get('order_type'); // ASC / DESC
 	
-		$select = "a.* , b.nilai,c.nama_pelajaran, d.jenis_nilai";
+		$select = "A.* , b.nilai,c.nama_pelajaran, d.jenis_nilai";
 
 		$join = array(
-			"skl_trx_nilai b" => "ON a.id = b.id_murid",
+			"skl_trx_nilai b" => "ON A.id = b.id_murid",
 			 "skl_master_pelajaran c" =>" ON b.id_pelajaran = c.id",
 			"skl_master_jenis_nilai d" => "ON b.id_jenis_nilai = d.id "
 		);
 
 		$where = array(
-			"a.id" => $nis
+			"A.id" => $nis
 		);
 		
 		$table = 'skl_master_murid';
@@ -138,16 +138,16 @@ class GET extends SEKOLAH_Controller {
 		$nik = $this->input->get('id_murid');
 		$id_jenis_nilai = $this->input->get('id_jenis_nilai');
 		
-		$select = "a.* , b.nilai,c.nama_pelajaran, d.jenis_nilai";
+		$select = "A.* , b.nilai,c.nama_pelajaran, d.jenis_nilai";
 
 		$join = array(
-			"skl_trx_nilai b" => "ON a.id = b.id_murid",
+			"skl_trx_nilai b" => "ON A.id = b.id_murid",
 			 "skl_master_pelajaran c" =>" ON b.id_pelajaran = c.id",
 			"skl_master_jenis_nilai d" => "ON b.id_jenis_nilai = d.id "
 		);
 
 		$where = array(
-			"a.id" => $nis
+			"A.id" => $nis
 		);
 		
 		$table = 'skl_master_murid';
