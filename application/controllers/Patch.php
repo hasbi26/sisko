@@ -271,14 +271,14 @@ class PATCH extends SEKOLAH_Controller {
 		$body = json_validator(file_get_contents('php://input'));
 
 		if(!$body){
-			$title = 'Kelas By ID';
+			$title = 'Menu By ID';
 			$code = 400;
 			$data = array();
 		}
 
 		$resp = $this->M_crud->pub_update_where('skl_menu_config', $body, array('id' => $Id));
 		//var_dump($resp);exit;
-		$title = 'Update Kelas By ID';
+		$title = 'Menu Kelas By ID';
 		$code = 200;
 		$data = array();
 
@@ -294,14 +294,14 @@ class PATCH extends SEKOLAH_Controller {
 		$body = json_validator(file_get_contents('php://input'));
 
 		if(!$body){
-			$title = 'Kelas By ID';
+			$title = 'Akses By ID';
 			$code = 400;
 			$data = array();
 		}
 
 		$resp = $this->M_crud->pub_update_where('skl_akses_menu_by_role', $body, array('id_menu' => $Id));
 		//var_dump($resp);exit;
-		$title = 'Update Kelas By ID';
+		$title = 'Update Akses By ID';
 		$code = 200;
 		$data = array();
 
