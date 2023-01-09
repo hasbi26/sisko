@@ -157,6 +157,14 @@ $route['get/MapingMuridByUser/byId'] = "get/MapingMuridByUser";
 $route['get/MapingMuridByUser/all'] = "get/MapingMuridByUserAll";
 
 
+//mappingGuru
+$route['addMapingGuru'] = "post/addMapingGuru";
+$route['patch/MapingGuru/byId/(:any)'] = "patch/MapingGuru/$1";
+$route['delete/MapingGuru/byId/(:any)'] = "delete/MapingGuru/$1";
+$route['get/MapingGuru/byId'] = "get/MapingGuruById";
+$route['get/MapingGuru/all'] = "get/MapingGuruAll";
+
+
 
 
 

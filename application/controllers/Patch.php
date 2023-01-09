@@ -336,7 +336,28 @@ class PATCH extends SEKOLAH_Controller {
 		echo skl_response($code, $title, $data, getCodeText($code));
 	}
 
+	public function MapingGuru($Id){
+		
+		$body = json_validator(file_get_contents('php://input'));
 
+		if(!$body){
+			$title = 'Mapping Guru';
+			$code = 400;
+			$data = array();
+		}
+
+		$resp = $this->M_crud->pub_update_where('skl_mapping_guru', $body, array('id' => $Id));
+		//var_dump($resp);exit;
+		$title = 'Update Mapping Guru ';
+		$code = 200;
+		$data = array();
+
+		if(!$resp){
+			$code = 204;
+		}
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
 
 
 

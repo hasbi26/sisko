@@ -130,6 +130,121 @@
 			"response": []
 		},
 		{
+			"name": "saveMappingMuridByUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_murid",
+							"value": "8",
+							"type": "default"
+						},
+						{
+							"key": "id_user",
+							"value": "8",
+							"type": "default"
+						},
+						{
+							"key": "api",
+							"value": "test api",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "no_telepon",
+							"value": "089898",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sisko/addMapingMuridByUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"addMapingMuridByUser"
+					],
+					"query": [
+						{
+							"key": "id_user",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "id_murid",
+							"value": "15",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveMappingGuru",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_user",
+							"value": "12",
+							"type": "default"
+						},
+						{
+							"key": "id_kelas",
+							"value": "30",
+							"type": "default"
+						},
+						{
+							"key": "id_pelajaran",
+							"value": "100",
+							"type": "default"
+						},
+						{
+							"key": "no_telepon",
+							"value": "089898",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sisko/addMapingGuru",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"addMapingGuru"
+					],
+					"query": [
+						{
+							"key": "id_user",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "id_murid",
+							"value": "15",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "savetingkat",
 			"request": {
 				"method": "POST",
@@ -300,8 +415,18 @@
 							"type": "default"
 						},
 						{
-							"key": "nip",
-							"value": "8",
+							"key": "nama",
+							"value": "tatang",
+							"type": "default"
+						},
+						{
+							"key": "alamat",
+							"value": "cimalaka",
+							"type": "default"
+						},
+						{
+							"key": "no_telp",
+							"value": "8997",
 							"type": "default",
 							"disabled": true
 						}
@@ -637,6 +762,28 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
+					"raw": "http://localhost/sisko/delete/MapingMuridByUser/byId/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"delete",
+						"MapingMuridByUser",
+						"byId",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del MapingMuridByUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
 					"raw": "http://localhost/sisko/delete/murid/byNik/989898989",
 					"protocol": "http",
 					"host": [
@@ -648,6 +795,28 @@
 						"murid",
 						"byNik",
 						"989898989"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del MapingMuridByUser Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/delete/MapingGuru/byId/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"delete",
+						"MapingGuru",
+						"byId",
+						"3"
 					]
 				}
 			},

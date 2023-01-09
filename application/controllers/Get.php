@@ -946,6 +946,58 @@ class GET extends SEKOLAH_Controller {
 
 	}
 
+	public function MapingGuruAll(){ //untuk datatable
+
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+
+		$resp = $this->M_crud->all('skl_mapping_guru', $start, $limit, $orderby, $ordertype);
+		//exit;
+		$resp_all = $this->M_crud->all('skl_mapping_guru');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All Mapping';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+
+	}
+
+
+	public function MapingGuruById(){
+		//print_r($this->input->get());exit;
+		$resp = $this->M_crud->pub_multi_where('skl_mapping_guru', $this->input->get());
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get Mapping Guru By ID';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
+	}
+
 
 
 

@@ -243,6 +243,21 @@ class DELETE extends SEKOLAH_Controller {
 	}
 
 	
+
+	public function MapingGuru($Id){
+
+		$resp = $this->M_crud->pub_delete_where('skl_mapping_guru', array('id' => $Id));
+		
+        $title = 'Delete Maping Guru';
+        $code = 200;
+        $data = array();
+
+        if(!$resp){
+			$code = 204;
+		}
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
 	
 	
 		

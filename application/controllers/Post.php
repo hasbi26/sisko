@@ -262,6 +262,17 @@ class Post extends SEKOLAH_Controller {
 	}
 
 
+	public function addMapingGuru(){
+
+		$resp = $this->M_crud->pub_insert('skl_mapping_guru', $this->input->post());
+		$title = 'Insert Mapping Guru';
+		$code = ($resp) ? 201 : 409;
+		$data = array();
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
+
 	
 
 

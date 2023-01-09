@@ -217,6 +217,45 @@
 			"response": []
 		},
 		{
+			"name": "get user all Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/role/all?start=0&limit=2&order_by&order_type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"role",
+						"all"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "order_by",
+							"value": null
+						},
+						{
+							"key": "order_type",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "get role all",
 			"request": {
 				"method": "GET",
@@ -397,6 +436,84 @@
 						{
 							"key": "limit",
 							"value": "3"
+						},
+						{
+							"key": "order_by",
+							"value": null
+						},
+						{
+							"key": "order_type",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get MapingMuridByUserAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/MapingMuridByUserAll/all?start=1&limit=2&order_by&order_type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"MapingMuridByUserAll",
+						"all"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "order_by",
+							"value": null
+						},
+						{
+							"key": "order_type",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get MapingGuruAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/MapingGuru/all?start=0&limit=2&order_by&order_type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"MapingGuru",
+						"all"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "2"
 						},
 						{
 							"key": "order_by",
@@ -672,6 +789,60 @@
 			"response": []
 		},
 		{
+			"name": "get Mapping Murid By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/MapingMuridByUser/byId?id=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"MapingMuridByUser",
+						"byId"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Mapping Guru By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sisko/get/MapingMuridByUser/byId?id=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"get",
+						"MapingMuridByUser",
+						"byId"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "get murid by nik",
 			"request": {
 				"method": "GET",
@@ -896,6 +1067,92 @@
 						"user",
 						"byId",
 						"3"
+					],
+					"query": [
+						{
+							"key": "nip",
+							"value": "1ab",
+							"disabled": true
+						},
+						{
+							"key": "nama_guru",
+							"value": "jhon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Mapping Murid by id User",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_user\" : \"2\",\r\n    \"id_murid\" : \"100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/sisko/patch/addMapingMuridByUser/byId/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"patch",
+						"addMapingMuridByUser",
+						"byId",
+						"3"
+					],
+					"query": [
+						{
+							"key": "nip",
+							"value": "1ab",
+							"disabled": true
+						},
+						{
+							"key": "nama_guru",
+							"value": "jhon",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Mapping Guru",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_user\" : \"2\",\r\n    \"id_kelas\" : \"100\",\r\n    \"id_pelajaran\" : \"100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/sisko/patch/MapingGuru/byId/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sisko",
+						"patch",
+						"MapingGuru",
+						"byId",
+						"1"
 					],
 					"query": [
 						{
