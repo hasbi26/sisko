@@ -313,9 +313,28 @@ class PATCH extends SEKOLAH_Controller {
 	}
 	
 
+	public function MapingMuridByUser($Id){
+		
+		$body = json_validator(file_get_contents('php://input'));
 
+		if(!$body){
+			$title = 'Mapping Murid By ID User';
+			$code = 400;
+			$data = array();
+		}
 
+		$resp = $this->M_crud->pub_update_where('skl_mapping_murid_by_user', $body, array('id' => $Id));
+		//var_dump($resp);exit;
+		$title = 'Update Mapping Murid By ID User';
+		$code = 200;
+		$data = array();
 
+		if(!$resp){
+			$code = 204;
+		}
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
 
 
 

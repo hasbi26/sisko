@@ -120,7 +120,10 @@ class Post extends SEKOLAH_Controller {
 
 	public function adduser(){
 
-		$resp = $this->M_crud->pub_insert('skl_master_user', $this->input->post());
+		$replacements = array("password" => MD5($this->input->post('password')));
+		$merge = array_merge($this->input->post(), $replacements);
+
+		$resp = $this->M_crud->pub_insert('skl_master_user', $merge);
 		$title = 'Insert user';
 		$code = ($resp) ? 201 : 409;
 		$data = array();
@@ -242,6 +245,16 @@ class Post extends SEKOLAH_Controller {
 
 		$resp = $this->M_crud->pub_insert('skl_akses_menu_by_role', $this->input->post());
 		$title = 'Insert Akses';
+		$code = ($resp) ? 201 : 409;
+		$data = array();
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
+	public function addMapingMuridByUser(){
+
+		$resp = $this->M_crud->pub_insert('skl_mapping_murid_by_user', $this->input->post());
+		$title = 'Insert Mapping Murid By User';
 		$code = ($resp) ? 201 : 409;
 		$data = array();
 

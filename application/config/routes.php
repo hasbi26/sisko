@@ -149,6 +149,16 @@ $route['delete/akses/byId/(:any)'] = "delete/aksesById/$1";
 $route['get/akses/byId'] = "get/aksesById";
 $route['get/akses/all'] = "get/aksesAll";
 
+//mappingMuridByUser
+$route['addMapingMuridByUser'] = "post/addMapingMuridByUser";
+$route['patch/MapingMuridByUser/byId/(:any)'] = "patch/MapingMuridByUser/$1";
+$route['delete/MapingMuridByUser/byId/(:any)'] = "delete/MapingMuridByUser/$1";
+$route['get/MapingMuridByUser/byId'] = "get/MapingMuridByUser";
+$route['get/MapingMuridByUser/all'] = "get/MapingMuridByUserAll";
+
+
+
+
 
 $route['logs'] = "logViewerController/index";
 // $route['default_controller'] = 'authController/login';

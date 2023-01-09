@@ -227,6 +227,21 @@ class DELETE extends SEKOLAH_Controller {
 		echo skl_response($code, $title, $data, getCodeText($code));
 	}
 
+	public function MapingMuridByUser($Id){
+
+		$resp = $this->M_crud->pub_delete_where('skl_mapping_murid_by_user', array('id' => $Id));
+		
+        $title = 'Delete MapingMuridByUser by id';
+        $code = 200;
+        $data = array();
+
+        if(!$resp){
+			$code = 204;
+		}
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+	}
+
 	
 	
 	

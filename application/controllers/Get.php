@@ -894,6 +894,57 @@ class GET extends SEKOLAH_Controller {
 		
 	}
 
+	public function MapingMuridByUser(){
+		//print_r($this->input->get());exit;
+		$resp = $this->M_crud->pub_multi_where('skl_mapping_murid_by_user', $this->input->get());
+
+		$data = array();
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				# code...
+				//print_r($value);
+				$data[$key] = $value;
+
+			}
+
+		}
+
+		$title = 'Get Mapping Murid By ID User';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code));
+		
+	}
+
+
+	public function MapingMuridByUserAll(){ //untuk datatable
+
+		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
+		$limit = $this->input->get('limit'); //tampilkan sebanyak
+		$orderby = $this->input->get('order_by'); //nama field
+		$ordertype = $this->input->get('order_type'); // ASC / DESC
+
+		$resp = $this->M_crud->all('skl_mapping_murid_by_user', $start, $limit, $orderby, $ordertype);
+		//exit;
+		$resp_all = $this->M_crud->all('skl_mapping_murid_by_user');
+
+		$data = array();
+
+		if($resp->num_rows() > 0){
+
+			foreach ($resp->result() as $key => $value) {
+				$data[$key] = $value;
+			}
+
+		}
+
+		$title = 'Get All Role';
+		$code = ($resp->num_rows() > 0) ? 200 : 404;
+
+		echo skl_response($code, $title, $data, getCodeText($code), $resp_all->num_rows());
+
+	}
 
 
 
