@@ -920,14 +920,35 @@ class GET extends SEKOLAH_Controller {
 
 	public function MapingMuridByUserAll(){ //untuk datatable
 
+
+
+
 		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
 		$limit = $this->input->get('limit'); //tampilkan sebanyak
 		$orderby = $this->input->get('order_by'); //nama field
 		$ordertype = $this->input->get('order_type'); // ASC / DESC
 
-		$resp = $this->M_crud->all('skl_mapping_murid_by_user', $start, $limit, $orderby, $ordertype);
-		//exit;
-		$resp_all = $this->M_crud->all('skl_mapping_murid_by_user');
+
+		$select = "A.id_user, id_murid, C.nama, C.alamat, C.telepon, C.image";
+
+		$join = array(
+			"skl_master_user B" => "ON A.id_user = B.id",
+			"skl_master_murid C" => "ON A.id_murid = C.id",
+		);
+
+		$where = array();
+
+		$table = 'skl_mapping_murid_by_user';
+
+
+		$resp = $this->M_crud->customQuery($select, $table, $join, $where, $orderby, $ordertype, $limit, $start);
+
+		$resp_all = $this->M_crud->customQuery($select, $table, $join, $where);
+
+
+		// $resp = $this->M_crud->all('skl_mapping_murid_by_user', $start, $limit, $orderby, $ordertype);
+		// //exit;
+		// $resp_all = $this->M_crud->all('skl_mapping_murid_by_user');
 
 		$data = array();
 
