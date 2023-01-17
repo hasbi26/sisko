@@ -920,16 +920,13 @@ class GET extends SEKOLAH_Controller {
 
 	public function MapingMuridByUserAll(){ //untuk datatable
 
-
-
-
 		$start = $this->input->get('start'); // tampilkan mulai dari record ke ..
 		$limit = $this->input->get('limit'); //tampilkan sebanyak
 		$orderby = $this->input->get('order_by'); //nama field
 		$ordertype = $this->input->get('order_type'); // ASC / DESC
 
 
-		$select = "A.id_user, id_murid, C.nama, C.alamat, C.telepon, C.image";
+		$select = "A.id, A.id_user, B.nama AS nama_user, id_murid, C.nama AS nama_murid, C.alamat, C.telepon, C.image";
 
 		$join = array(
 			"skl_master_user B" => "ON A.id_user = B.id",
