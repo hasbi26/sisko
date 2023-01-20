@@ -64,8 +64,8 @@
         
         private function insert(){
             return $this->db->insert($this->table_name, $this->value);
-            // print_r($this->db->last_query());
-            // exit;
+           print_r($this->db->last_query());
+             exit;
         }
 
         private function call_sp(){
@@ -149,6 +149,20 @@
             $this->username = $username;
             $this->password = $password;
             return $this->call_sp();
+        }
+
+
+        public function queryCustom ($username, $password){
+
+            $this->username = $username;
+            $this->password = $password;
+
+            // $query = $this->db->query("CALL $this->spname('{$this->username}', '{$this->password}')");
+            $query = $this->db->query("UPDATE skl_master_user SET last_login = CURRENT_TIMESTAMP() WHERE username=$username AND password=$password'");
+            return $query;
+
+
+
         }
     }
 

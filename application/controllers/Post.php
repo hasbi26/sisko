@@ -61,8 +61,9 @@ class Post extends SEKOLAH_Controller {
 				'menu' => $my_menu
 			);
 			
-			$updateLastLogin = $this->M_crud->pub_call_sp('UpdateLastLogin', $resp->row()->username, $resp->row()->password);
-
+			// $updateLastLogin = $this->M_crud->pub_call_sp('UpdateLastLogin', $resp->row()->username, $resp->row()->password);
+			$updateLastLogin = $this->M_crud->queryCustom($resp->row()->username, $resp->row()->password);
+			
 		} else {
 
 			$data = array();
